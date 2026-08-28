@@ -1,15 +1,7 @@
 import React from 'react';
-import { Sparkles, Terminal, Palette, Monitor, Cpu, Heart, ArrowRight } from 'lucide-react';
+import { Sparkles, Palette, Monitor, Heart, ArrowRight } from 'lucide-react';
 
 export default function AboutView({ setActiveView }) {
-  const tools = [
-    { name: 'Clip Studio Paint EX', role: 'Manga lineart, comic sequential paneling & raster inking' },
-    { name: 'Adobe Photoshop', role: 'Master color rendering, atmospheric lighting & post-processing' },
-    { name: 'Toon Boom / TVPaint', role: 'Frame-by-frame 2D sakuga action animation' },
-    { name: 'Adobe After Effects', role: 'Motion design, parallax camera passes & VFX compositing' },
-    { name: 'Blender 3D', role: '3D blockouts, environmental perspective grids & prop staging' },
-  ];
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-20">
       
@@ -62,18 +54,22 @@ export default function AboutView({ setActiveView }) {
           </div>
         </div>
 
-        {/* Right Artist Visual Showcase */}
+        {/* Right Artist Visual Showcase (Female 2D Animation Cut) */}
         <div className="lg:col-span-5 relative">
-          <div className="bg-dark-900 border-2 border-dark-700 p-4 shadow-solid-lg space-y-4">
+          <div className="bg-dark-900 border-2 border-brand-accent p-4 shadow-solid-lg space-y-4">
             <div className="aspect-[4/5] bg-dark-950 overflow-hidden border border-dark-800 relative">
-              <img
-                src="/Illustrations/Vampire Queen splash art.png"
-                alt="Unrivaled Art Studio"
-                className="w-full h-full object-cover filter contrast-110"
+              <video
+                src="/Animation/New Project 1 [DBD0A9F].mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover filter contrast-105 pointer-events-none"
               />
               <div className="absolute bottom-3 left-3 right-3 bg-dark-950/90 border border-dark-700 p-3 text-left">
                 <div className="text-xs font-mono font-bold text-white uppercase">UNRIVALED ART</div>
-                <div className="text-[11px] font-mono text-brand-accent">Est. Digital Creator Studio</div>
+                <div className="text-[11px] font-mono text-brand-accent">2D Sakuga Animation & Character Art</div>
               </div>
             </div>
 
@@ -136,34 +132,7 @@ export default function AboutView({ setActiveView }) {
         </div>
       </section>
 
-      {/* 3. Software & Hardware Toolkit */}
-      <section className="text-left space-y-6">
-        <div className="border-b-2 border-dark-800 pb-4">
-          <div className="inline-flex items-center gap-2 text-brand-cyber font-mono text-xs font-bold tracking-widest uppercase mb-1">
-            <Cpu className="w-4 h-4" />
-            <span>Studio Production Arsenal</span>
-          </div>
-          <h2 className="text-3xl font-extrabold text-white font-display">
-            SOFTWARE & HARDWARE TOOLKIT
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {tools.map((tool, idx) => (
-            <div key={idx} className="bg-dark-900 border-2 border-dark-800 p-5 flex items-start gap-4">
-              <div className="w-8 h-8 bg-dark-950 border border-dark-700 text-brand-accent flex items-center justify-center flex-shrink-0 font-mono text-xs font-bold">
-                {idx + 1}
-              </div>
-              <div>
-                <h4 className="text-base font-bold text-white font-display">{tool.name}</h4>
-                <p className="text-xs text-neutral-400 mt-1 font-mono">{tool.role}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. Bottom Call To Action */}
+      {/* 3. Bottom Call To Action */}
       <div className="bg-dark-900 border-2 border-brand-accent p-8 sm:p-12 text-center space-y-6">
         <h3 className="text-3xl sm:text-4xl font-extrabold text-white font-display">
           READY TO WORK TOGETHER?

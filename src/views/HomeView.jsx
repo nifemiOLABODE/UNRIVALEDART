@@ -1,33 +1,62 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Palette, Layers, Star, HelpCircle, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Sparkles, ArrowRight, Palette, Layers, Star, HelpCircle, ChevronRight } from 'lucide-react';
 import { ARTWORKS } from '../data/artworks';
 import { SERVICES, COMMISSION_STEPS } from '../data/services';
 import { TESTIMONIALS } from '../data/testimonials';
 import { FAQS } from '../data/faqs';
 
 export default function HomeView({ setActiveView, onSelectArtwork, onSelectService }) {
-  // Find key artworks
+  // Key artworks
   const vampireQueenArt = ARTWORKS.find(a => a.id === 'ill-vampire-queen') || ARTWORKS[1];
   const zukoArt = ARTWORKS.find(a => a.id === 'ill-zuko-splash') || ARTWORKS[0];
+  const battleElfArt = ARTWORKS.find(a => a.id === 'ill-battle-elf') || ARTWORKS[2];
   const animationArt = ARTWORKS.find(a => a.isVideo) || ARTWORKS[0];
   const characterDesignArt = ARTWORKS.find(a => a.category === 'character-design') || ARTWORKS[2];
   const comicArt = ARTWORKS.find(a => a.category === 'comic-pages') || ARTWORKS[3];
   const coverArt = ARTWORKS.find(a => a.category === 'cover-arts') || ARTWORKS[4];
-  const battleElfArt = ARTWORKS.find(a => a.id === 'ill-battle-elf') || ARTWORKS[5];
+
+  // Dynamic ember particles for background animation
+  const sparks = [
+    { left: '8%', size: '3px', duration: '9s', delay: '0s', color: '#FF3366' },
+    { left: '22%', size: '4px', duration: '12s', delay: '2s', color: '#00F0FF' },
+    { left: '38%', size: '2px', duration: '8s', delay: '1s', color: '#FFB800' },
+    { left: '55%', size: '5px', duration: '14s', delay: '4s', color: '#FF3366' },
+    { left: '68%', size: '3px', duration: '10s', delay: '3s', color: '#00F0FF' },
+    { left: '82%', size: '4px', duration: '11s', delay: '1.5s', color: '#FFB800' },
+    { left: '94%', size: '2px', duration: '13s', delay: '5s', color: '#FF3366' },
+  ];
 
   return (
     <div className="relative overflow-hidden space-y-24 sm:space-y-32 pb-24">
       
-      {/* Animated Global Background Elements */}
+      {/* ═══════════════════════════════════════════════════════════
+          DYNAMIC SAKUGA / LASER GRID BACKGROUND
+          ═══════════════════════════════════════════════════════════ */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Drifting Cyber Grid */}
-        <div className="absolute inset-0 animated-cyber-grid opacity-35" />
-        
-        {/* Floating Atmospheric Ambient Energy Orbs */}
-        <div className="absolute -top-20 left-1/4 w-[500px] h-[500px] bg-brand-accent/15 rounded-full blur-[130px] animate-float-slow" />
-        <div className="absolute top-1/3 right-5 w-[450px] h-[450px] bg-brand-cyber/15 rounded-full blur-[140px] animate-float-reverse" />
-        <div className="absolute top-2/3 left-10 w-[550px] h-[550px] bg-brand-amber/10 rounded-full blur-[150px] animate-pulse-glow" />
-        <div className="absolute -bottom-20 right-1/4 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-[140px] animate-float-slow" />
+        {/* Moving Laser Grid */}
+        <div className="absolute inset-0 sakuga-grid-bg opacity-45" />
+
+        {/* Ambient Top Glow Orbs */}
+        <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-brand-accent/15 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-brand-cyber/15 rounded-full blur-[150px]" />
+        <div className="absolute bottom-40 left-10 w-[550px] h-[550px] bg-brand-amber/10 rounded-full blur-[160px]" />
+
+        {/* Rising Sakuga Embers / Spark Particles */}
+        {sparks.map((spark, idx) => (
+          <span
+            key={idx}
+            className="sakuga-spark"
+            style={{
+              left: spark.left,
+              width: spark.size,
+              height: spark.size,
+              backgroundColor: spark.color,
+              boxShadow: `0 0 10px ${spark.color}, 0 0 20px ${spark.color}`,
+              animationDuration: spark.duration,
+              animationDelay: spark.delay,
+            }}
+          />
+        ))}
       </div>
 
       {/* 1. HERO SECTION */}
@@ -39,8 +68,8 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             <div className="lg:col-span-7 space-y-6 text-left">
               
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-dark-900/90 border-2 border-dark-700 shadow-solid-sm backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-dark-900 border-2 border-dark-700 shadow-solid-sm hover:border-brand-accent transition-colors">
+                <span className="w-2 h-2 rounded-full bg-brand-accent animate-ping" />
                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-300">
                   Illustrator • Character Artist • Comic Artist • Animator
                 </span>
@@ -88,30 +117,30 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
 
               {/* Quick stats / proof */}
               <div className="grid grid-cols-3 gap-4 pt-6 border-t-2 border-dark-800 text-left font-mono">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-white">220+</div>
+                <div className="group cursor-default">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-brand-accent transition-colors">220+</div>
                   <div className="text-[11px] text-neutral-500 uppercase">Original Works</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent">5★</div>
+                <div className="group cursor-default">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent group-hover:scale-105 transition-transform inline-block">5★</div>
                   <div className="text-[11px] text-neutral-500 uppercase">Client Rating</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-extrabold text-brand-cyber">2D</div>
+                <div className="group cursor-default">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-brand-cyber group-hover:text-cyan-300 transition-colors">2D</div>
                   <div className="text-[11px] text-neutral-500 uppercase">Sakuga & Motion</div>
                 </div>
               </div>
 
             </div>
 
-            {/* Hero Right Composition (2D Sakuga Cut Clean Hero Spotlight) */}
+            {/* Hero Right Composition (2D Sakuga Cut Hero Spotlight) */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Main Hero Card (2D Animated Sakuga Cut - Pure video without text caption) */}
+                {/* Main Hero Card (2D Sakuga Cut - Pure video without any text caption) */}
                 <div 
                   onClick={() => onSelectArtwork(animationArt)}
-                  className="relative group cursor-pointer bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 shadow-solid-cyber overflow-hidden"
+                  className="relative group cursor-pointer bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 shadow-[0_10px_35px_rgba(0,240,255,0.2)] hover:shadow-[0_15px_45px_rgba(0,240,255,0.4)] overflow-hidden"
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                     <video
@@ -121,35 +150,29 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                       muted
                       playsInline
                       preload="metadata"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                     />
                   </div>
                 </div>
 
-                {/* Floating Supporting Artwork Card (Zuko - Mini Media, not bold) */}
+                {/* Floating Supporting Artwork Thumbnail (Battle Elf - Pure Image Without Caption) */}
                 <div 
-                  onClick={() => onSelectArtwork(zukoArt)}
-                  className="hidden sm:block absolute -bottom-8 -left-10 w-44 bg-dark-900 border-2 border-dark-700 hover:border-brand-accent cursor-pointer shadow-solid transition-all duration-300 p-2 group"
+                  onClick={() => onSelectArtwork(battleElfArt)}
+                  className="hidden sm:block absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-300 p-1.5 group overflow-hidden"
                 >
-                  <div className="aspect-square bg-dark-950 overflow-hidden mb-2">
+                  <div className="w-full h-full bg-dark-950 overflow-hidden">
                     <img
-                      src="/opt/Illustrations/Zuko splash art.webp"
-                      alt="Zuko Splash Art"
+                      src="/opt/Illustrations/Battle elf illustration.webp"
+                      alt="Featured Artwork"
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <div className="text-[10px] font-mono font-bold text-white uppercase truncate">
-                    Zuko — Fire & Embers
-                  </div>
-                  <div className="text-[9px] font-mono text-neutral-400 uppercase">
-                    Illustration
-                  </div>
                 </div>
 
-                {/* Floating Tag */}
-                <div className="absolute -top-4 -right-4 bg-brand-cyber text-dark-950 px-3 py-1 font-mono text-xs font-bold tracking-widest uppercase shadow-solid-sm">
+                {/* Floating Clean Badge */}
+                <div className="absolute -top-3 -right-3 bg-brand-cyber text-dark-950 px-3 py-1 font-mono text-xs font-bold tracking-widest uppercase shadow-solid-sm">
                   ⚡ 2D SAKUGA
                 </div>
 
@@ -160,7 +183,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 2. SELECTED WORKS (ASYMMETRICAL CURATED SHOWCASE) */}
+      {/* 2. SELECTED WORKS (CURATED SHOWCASE) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 border-b-2 border-dark-800 pb-6 text-left">
           <div>
@@ -191,7 +214,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 1: Large Featured Illustration (VAMPIRE QUEEN BOLD) */}
           <div 
             onClick={() => onSelectArtwork(vampireQueenArt)}
-            className="md:col-span-8 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid flex flex-col justify-between overflow-hidden"
+            className="md:col-span-8 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_35px_rgba(255,51,102,0.25)] flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[16/10] bg-dark-950 overflow-hidden">
               <img
@@ -209,10 +232,10 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 flex items-center justify-between text-left">
               <div>
-                <h3 className="text-2xl font-extrabold text-white font-display">Vampire Queen</h3>
+                <h3 className="text-2xl font-extrabold text-white font-display group-hover:text-brand-accent transition-colors">Vampire Queen</h3>
                 <p className="text-xs text-neutral-400 font-mono mt-1">Dark gothic fantasy character design & royal atmosphere</p>
               </div>
-              <span className="btn-outline px-4 py-2 text-xs font-mono flex items-center gap-1">
+              <span className="btn-outline px-4 py-2 text-xs font-mono flex items-center gap-1 group-hover:bg-brand-accent group-hover:text-white transition-colors">
                 <span>INSPECT</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </span>
@@ -222,7 +245,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 2: Book / Comic Cover */}
           <div 
             onClick={() => onSelectArtwork(coverArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(0,240,255,0.2)] flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[3/4] bg-dark-950 overflow-hidden">
               <img
@@ -239,7 +262,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               </div>
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 text-left">
-              <h3 className="text-lg font-bold text-white font-display">{coverArt?.title}</h3>
+              <h3 className="text-lg font-bold text-white font-display group-hover:text-brand-cyber transition-colors">{coverArt?.title}</h3>
               <p className="text-xs text-neutral-400 font-mono mt-1">{coverArt?.description}</p>
             </div>
           </div>
@@ -247,7 +270,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 3: Zuko Splash Art (Mini Media in Grid, Not Bold) */}
           <div 
             onClick={() => onSelectArtwork(zukoArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -264,7 +287,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               </div>
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 text-left">
-              <h3 className="text-lg font-bold text-white font-display">Zuko — Flame Master</h3>
+              <h3 className="text-lg font-bold text-white font-display group-hover:text-brand-accent transition-colors">Zuko — Flame Master</h3>
               <p className="text-xs text-neutral-400 font-mono mt-1">High-impact dynamic lighting illustration</p>
             </div>
           </div>
@@ -272,7 +295,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 4: Character Turnaround Sheet */}
           <div 
             onClick={() => onSelectArtwork(characterDesignArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,184,0,0.2)] flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -289,7 +312,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               </div>
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 text-left">
-              <h3 className="text-lg font-bold text-white font-display">{characterDesignArt?.title || 'Model Sheet'}</h3>
+              <h3 className="text-lg font-bold text-white font-display group-hover:text-brand-amber transition-colors">{characterDesignArt?.title || 'Model Sheet'}</h3>
               <p className="text-xs text-neutral-400 font-mono mt-1">Full 3-view turnaround & expression art</p>
             </div>
           </div>
@@ -297,7 +320,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 5: Comic Manga Spread */}
           <div 
             onClick={() => onSelectArtwork(comicArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -314,7 +337,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               </div>
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 text-left">
-              <h3 className="text-lg font-bold text-white font-display">{comicArt?.title || 'Manga Page'}</h3>
+              <h3 className="text-lg font-bold text-white font-display group-hover:text-brand-accent transition-colors">{comicArt?.title || 'Manga Page'}</h3>
               <p className="text-xs text-neutral-400 font-mono mt-1">Kinetic action inking & screentones</p>
             </div>
           </div>
@@ -343,9 +366,9 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             {SERVICES.map((service) => (
               <div
                 key={service.id}
-                className="bg-dark-950 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 p-6 flex flex-col justify-between group shadow-solid"
+                className="bg-dark-950 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 p-6 flex flex-col justify-between group shadow-solid hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(255,51,102,0.2)]"
               >
-                <div className="space-y-4">
+                <div className="space-y-4 text-left">
                   <div className="flex items-center justify-between">
                     <span className="text-2xl">{service.icon}</span>
                     <span className="font-mono text-xs text-neutral-400 uppercase bg-dark-900 px-2 py-1 border border-dark-800">
@@ -395,7 +418,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               }}
               className="btn-secondary px-8 py-4 font-mono text-xs tracking-widest inline-flex items-center gap-2"
             >
-              <span>VIEW FULL PRICING BREAKDOWN & COMMERICAL TIERS</span>
+              <span>VIEW FULL PRICING BREAKDOWN & COMMERCIAL TIERS</span>
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -418,7 +441,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {COMMISSION_STEPS.map((step) => (
             <div
               key={step.step}
-              className="bg-dark-900 border-2 border-dark-800 p-6 space-y-4 shadow-solid relative overflow-hidden group hover:border-brand-accent transition-colors"
+              className="bg-dark-900 border-2 border-dark-800 p-6 space-y-4 shadow-solid relative overflow-hidden group hover:border-brand-accent hover:-translate-y-1 transition-all"
             >
               <div className="text-4xl font-extrabold font-display text-dark-700 group-hover:text-brand-accent/40 transition-colors">
                 {step.step}
@@ -430,7 +453,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 5. CLIENT TESTIMONIALS & TRUST */}
+      {/* 5. CLIENT TESTIMONIALS & REVIEWS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-left mb-12 border-b-2 border-dark-800 pb-6">
           <div className="inline-flex items-center gap-1.5 text-brand-amber font-mono text-xs font-bold tracking-widest uppercase mb-1">
@@ -446,7 +469,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {TESTIMONIALS.map((review) => (
             <div
               key={review.id}
-              className="bg-dark-900 border-2 border-dark-800 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-solid hover:border-neutral-500 transition-colors"
+              className="bg-dark-900 border-2 border-dark-800 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-solid hover:border-brand-accent hover:-translate-y-1 transition-all"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-1">
@@ -454,7 +477,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                     <Star key={i} className="w-4 h-4 fill-brand-amber text-brand-amber" />
                   ))}
                 </div>
-                <p className="text-sm text-neutral-300 leading-relaxed italic">
+                <p className="text-sm text-neutral-200 leading-relaxed italic">
                   "{review.quote}"
                 </p>
               </div>
@@ -489,13 +512,13 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {FAQS.slice(0, 4).map((faq, idx) => (
             <div
               key={idx}
-              className="bg-dark-900 border-2 border-dark-800 p-6 space-y-2 shadow-solid"
+              className="bg-dark-900 border-2 border-dark-800 hover:border-brand-cyber p-6 space-y-2 shadow-solid transition-colors"
             >
               <h3 className="text-base font-bold text-white font-display flex items-center gap-3">
                 <span className="font-mono text-xs text-brand-accent">0{idx + 1}.</span>
                 <span>{faq.q}</span>
               </h3>
-              <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed pl-7">
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed pl-7">
                 {faq.a}
               </p>
             </div>
@@ -508,7 +531,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               setActiveView('contact');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:underline inline-flex items-center gap-1.5"
+            className="text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:text-white inline-flex items-center gap-1.5 transition-colors"
           >
             <span>HAVE MORE QUESTIONS? VISIT CONTACT & FAQ</span>
             <ArrowRight className="w-3.5 h-3.5" />

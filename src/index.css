@@ -9,10 +9,7 @@
 
   body {
     @apply bg-dark-950 text-neutral-200 tracking-tight;
-    background-image: 
-      radial-gradient(circle at 10% 20%, rgba(255, 51, 102, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.04) 0%, transparent 45%);
-    background-attachment: fixed;
+    background-color: #08090E;
   }
 
   /* Custom Clean Scrollbar */
@@ -33,30 +30,30 @@
 }
 
 @layer components {
-  /* Solid tactile buttons without glassmorphism */
+  /* Solid tactile buttons with smooth dynamic hover states */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-accent transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(255,51,102,0.4)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark-900 hover:bg-dark-850 text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-dark-700 hover:border-neutral-400 transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark-900 hover:bg-dark-850 text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-dark-700 hover:border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
   }
 
   .btn-cyber {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-cyber hover:bg-cyan-400 text-dark-950 font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-cyber transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-cyber hover:bg-cyan-400 text-dark-950 font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-cyber transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-transparent hover:bg-dark-850 text-neutral-300 hover:text-white font-semibold text-xs tracking-wider uppercase rounded-none border border-dark-700 hover:border-brand-accent transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-transparent hover:bg-dark-850 text-neutral-300 hover:text-white font-semibold text-xs tracking-wider uppercase rounded-none border border-dark-700 hover:border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(255,51,102,0.25)];
   }
 
-  /* Solid cards */
+  /* Interactive cards with hover glow and subtle lift */
   .card-surface {
-    @apply bg-dark-900 border-2 border-dark-800 hover:border-dark-700 transition-colors duration-200;
+    @apply bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.8),0_0_15px_rgba(255,51,102,0.15)];
   }
 
   .card-highlight {
-    @apply bg-dark-900 border-2 border-brand-accent/50 hover:border-brand-accent transition-colors duration-200;
+    @apply bg-dark-900 border-2 border-brand-accent/50 hover:border-brand-accent transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(255,51,102,0.25)];
   }
 
   /* Brand Typography */
@@ -66,75 +63,86 @@
   }
 }
 
-/* Diagonal stripe accents for manga/action feel */
-.manga-stripes {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.02) 10px,
-    transparent 10px,
-    transparent 20px
-  );
-}
+/* ═══════════════════════════════════════════════════════════
+   DYNAMIC SAKUGA / CYBER ENERGETIC BACKGROUND ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
 
-.manga-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 16px 16px;
-}
-
-/* Atmospheric animated background for Homepage */
-.animated-cyber-grid {
-  background-size: 50px 50px;
+/* Dynamic moving laser grid lines */
+.sakuga-grid-bg {
+  background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  animation: gridMove 25s linear infinite;
+    linear-gradient(to right, rgba(255, 51, 102, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  animation: gridDrift 18s linear infinite;
 }
 
-@keyframes gridMove {
+@keyframes gridDrift {
   0% {
     background-position: 0 0;
   }
   100% {
-    background-position: 50px 50px;
+    background-position: 60px 60px;
   }
 }
 
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
+/* Floating Rising Sakuga Embers / Spark Particles */
+@keyframes sparkRise {
+  0% {
+    transform: translateY(100vh) scale(0.6) rotate(0deg);
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-25px) scale(1.08);
+  15% {
+    opacity: 0.8;
   }
-}
-
-@keyframes floatReverse {
-  0%, 100% {
-    transform: translateY(0px) scale(1.05);
+  85% {
+    opacity: 0.8;
   }
-  50% {
-    transform: translateY(20px) scale(0.95);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.55;
+  100% {
+    transform: translateY(-20vh) scale(1.4) rotate(360deg);
+    opacity: 0;
   }
 }
 
-.animate-float-slow {
-  animation: floatSlow 12s ease-in-out infinite;
+.sakuga-spark {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(1px);
+  animation: sparkRise linear infinite;
 }
 
-.animate-float-reverse {
-  animation: floatReverse 15s ease-in-out infinite;
+/* Scanline sweep effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 8s ease-in-out infinite;
+.animate-scanline {
+  animation: scanline 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Interactive navlink underline slide */
+.nav-link-hover {
+  position: relative;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #FF3366, #00F0FF);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
