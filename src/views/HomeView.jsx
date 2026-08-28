@@ -1,11 +1,17 @@
-import React from 'react';
-import { Sparkles, ArrowRight, Palette, Layers, Star, HelpCircle, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Sparkles, ArrowRight, Palette, Layers, Star, HelpCircle, ChevronRight, ChevronDown, ChevronUp, CheckCircle2, MessageSquare, Clock, ShieldCheck } from 'lucide-react';
 import { ARTWORKS } from '../data/artworks';
 import { SERVICES, COMMISSION_STEPS } from '../data/services';
 import { TESTIMONIALS } from '../data/testimonials';
 import { FAQS } from '../data/faqs';
 
 export default function HomeView({ setActiveView, onSelectArtwork, onSelectService }) {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (idx) => {
+    setOpenFaq(openFaq === idx ? null : idx);
+  };
+
   // Key artworks
   const vampireQueenArt = ARTWORKS.find(a => a.id === 'ill-vampire-queen') || ARTWORKS[1];
   const zukoArt = ARTWORKS.find(a => a.id === 'ill-zuko-splash') || ARTWORKS[0];
@@ -36,7 +42,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         {/* Moving Laser Grid */}
         <div className="absolute inset-0 sakuga-grid-bg opacity-45" />
 
-        {/* Ambient Top Glow Orbs */}
+        {/* Ambient Glow Orbs */}
         <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-brand-accent/15 rounded-full blur-[150px]" />
         <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-brand-cyber/15 rounded-full blur-[150px]" />
         <div className="absolute bottom-40 left-10 w-[550px] h-[550px] bg-brand-amber/10 rounded-full blur-[160px]" />
@@ -67,7 +73,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             {/* Hero Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               
-              {/* Badge */}
+              {/* Badge with auto-pulse */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-dark-900 border-2 border-dark-700 shadow-solid-sm hover:border-brand-accent transition-colors">
                 <span className="w-2 h-2 rounded-full bg-brand-accent animate-ping" />
                 <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-300">
@@ -90,14 +96,14 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 Welcome to the official creative home of <strong>Unrivaled Art</strong>. Delivering iconic character designs, best-selling book covers, sequential comic pages, and 2D sakuga animations for authors, game developers, and creators worldwide.
               </p>
 
-              {/* Hero Action Buttons */}
+              {/* Hero Action Buttons with Auto-Shimmer */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                 <button
                   onClick={() => {
                     setActiveView('hire');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="btn-primary px-8 py-4 text-sm font-bold tracking-widest flex items-center justify-center gap-2"
+                  className="btn-primary auto-shimmer px-8 py-4 text-sm font-bold tracking-widest flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>HIRE ME / COMMISSION</span>
@@ -140,7 +146,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 {/* Main Hero Card (2D Sakuga Cut - Pure video without any text caption) */}
                 <div 
                   onClick={() => onSelectArtwork(animationArt)}
-                  className="relative group cursor-pointer bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 shadow-[0_10px_35px_rgba(0,240,255,0.2)] hover:shadow-[0_15px_45px_rgba(0,240,255,0.4)] overflow-hidden"
+                  className="relative group cursor-pointer bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 shadow-[0_10px_35px_rgba(0,240,255,0.25)] hover:shadow-[0_15px_45px_rgba(0,240,255,0.5)] overflow-hidden"
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                     <video
@@ -214,7 +220,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 1: Large Featured Illustration (VAMPIRE QUEEN BOLD) */}
           <div 
             onClick={() => onSelectArtwork(vampireQueenArt)}
-            className="md:col-span-8 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_35px_rgba(255,51,102,0.25)] flex flex-col justify-between overflow-hidden"
+            className="md:col-span-8 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_35px_rgba(255,51,102,0.25)] flex flex-col justify-between overflow-hidden auto-pulse-card-1"
           >
             <div className="relative aspect-[16/10] bg-dark-950 overflow-hidden">
               <img
@@ -245,7 +251,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 2: Book / Comic Cover */}
           <div 
             onClick={() => onSelectArtwork(coverArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(0,240,255,0.2)] flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(0,240,255,0.2)] flex flex-col justify-between overflow-hidden auto-pulse-card-2"
           >
             <div className="relative aspect-[3/4] bg-dark-950 overflow-hidden">
               <img
@@ -270,7 +276,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 3: Zuko Splash Art (Mini Media in Grid, Not Bold) */}
           <div 
             onClick={() => onSelectArtwork(zukoArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden auto-pulse-card-3"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -295,7 +301,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 4: Character Turnaround Sheet */}
           <div 
             onClick={() => onSelectArtwork(characterDesignArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,184,0,0.2)] flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,184,0,0.2)] flex flex-col justify-between overflow-hidden auto-pulse-card-1"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -320,7 +326,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
           {/* Card 5: Comic Manga Spread */}
           <div 
             onClick={() => onSelectArtwork(comicArt)}
-            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden"
+            className="md:col-span-4 bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 group cursor-pointer shadow-solid hover:shadow-[0_10px_30px_rgba(255,51,102,0.2)] flex flex-col justify-between overflow-hidden auto-pulse-card-2"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden">
               <img
@@ -345,7 +351,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 3. SERVICES PREVIEW & PRICING */}
+      {/* 3. SERVICES PREVIEW & PRICING (WITH AUTO-ANIMATED CARDS & CLEAR USD PRICES) */}
       <section className="bg-dark-900/90 border-y-2 border-dark-800 py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -358,56 +364,67 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               SERVICES & STARTING RATES
             </h2>
             <p className="text-neutral-400 text-sm sm:text-base">
-              Clear upfront pricing with zero guesswork. Starting rates cover high-resolution digital master files and dedicated revision milestones.
+              Clear upfront pricing in US Dollars with zero hidden fees. Starting rates cover high-resolution digital master files and dedicated revision milestones.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((service) => (
-              <div
-                key={service.id}
-                className="bg-dark-950 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 p-6 flex flex-col justify-between group shadow-solid hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(255,51,102,0.2)]"
-              >
-                <div className="space-y-4 text-left">
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl">{service.icon}</span>
-                    <span className="font-mono text-xs text-neutral-400 uppercase bg-dark-900 px-2 py-1 border border-dark-800">
-                      {service.turnaround}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-white font-display group-hover:text-brand-accent transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-neutral-400 mt-2 line-clamp-2">
-                      {service.shortDesc}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-dark-800">
-                    <div className="text-2xl font-black font-display text-white">
-                      {service.startingPrice}
+            {SERVICES.map((service, idx) => {
+              const pulseClass = idx % 3 === 0 ? 'auto-pulse-card-1' : idx % 3 === 1 ? 'auto-pulse-card-2' : 'auto-pulse-card-3';
+              return (
+                <div
+                  key={service.id}
+                  className={`bg-dark-950 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 p-6 flex flex-col justify-between group shadow-solid hover:-translate-y-1 ${pulseClass}`}
+                >
+                  <div className="space-y-4 text-left">
+                    <div className="flex items-center justify-between">
+                      <span className="px-2.5 py-1 bg-dark-900 text-brand-accent border border-dark-700 text-xs font-mono font-bold uppercase tracking-wider">
+                        {service.badge || 'Available'}
+                      </span>
+                      <span className="font-mono text-xs text-neutral-400 uppercase bg-dark-900 px-2 py-1 border border-dark-800 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-brand-cyber" />
+                        {service.turnaround}
+                      </span>
                     </div>
-                    <div className="text-[11px] font-mono text-neutral-500">Starting baseline</div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white font-display group-hover:text-brand-accent transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                        {service.tagline || service.shortDesc}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-dark-800 flex items-baseline justify-between">
+                      <div>
+                        <div className="text-2xl sm:text-3xl font-black font-display text-white">
+                          ${service.startingPrice} <span className="text-xs font-mono font-normal text-brand-accent">USD</span>
+                        </div>
+                        <div className="text-[11px] font-mono text-neutral-500">Starting base rate</div>
+                      </div>
+                      <span className="text-xs font-mono text-brand-cyber">
+                        {service.tiers?.length || 3} Tiers Available
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="pt-6">
+                    <button
+                      onClick={() => {
+                        onSelectService(service.id);
+                        setActiveView('hire');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                      className="w-full btn-outline auto-shimmer text-center justify-center font-mono text-xs tracking-wider group-hover:bg-brand-accent group-hover:text-white group-hover:border-brand-accent transition-all"
+                    >
+                      <span>Request This Service</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
                 </div>
-
-                <div className="pt-6">
-                  <button
-                    onClick={() => {
-                      onSelectService(service.id);
-                      setActiveView('hire');
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="w-full btn-outline text-center justify-center font-mono text-xs tracking-wider group-hover:bg-brand-accent group-hover:text-white group-hover:border-brand-accent transition-colors"
-                  >
-                    <span>Request This Service</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">
@@ -416,7 +433,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 setActiveView('services');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="btn-secondary px-8 py-4 font-mono text-xs tracking-widest inline-flex items-center gap-2"
+              className="btn-secondary px-8 py-4 font-mono text-xs tracking-widest inline-flex items-center gap-2 auto-shimmer"
             >
               <span>VIEW FULL PRICING BREAKDOWN & COMMERCIAL TIERS</span>
               <ChevronRight className="w-4 h-4" />
@@ -426,103 +443,144 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 4. FOUR-STEP COMMISSION WORKFLOW */}
+      {/* 4. FOUR-STEP COMMISSION WORKFLOW (AUTO-ANIMATED & TEXT ENRICHED) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
-        <div className="mb-12 border-b-2 border-dark-800 pb-6">
-          <span className="text-xs font-mono font-bold tracking-widest text-brand-accent uppercase">
-            Simple & Transparent
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display tracking-tight mt-1">
-            HOW COMMISSIONING WORKS
-          </h2>
+        <div className="mb-12 border-b-2 border-dark-800 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span className="text-xs font-mono font-bold tracking-widest text-brand-accent uppercase flex items-center gap-2">
+              <Sparkles className="w-4 h-4" />
+              <span>Simple, Structured & Transparent</span>
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display tracking-tight mt-1">
+              HOW COMMISSIONING WORKS
+            </h2>
+          </div>
+          <p className="text-xs sm:text-sm text-neutral-400 max-w-md">
+            Four clear milestone checkpoints ensuring you get exactly what you envisioned without guesswork.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {COMMISSION_STEPS.map((step) => (
-            <div
-              key={step.step}
-              className="bg-dark-900 border-2 border-dark-800 p-6 space-y-4 shadow-solid relative overflow-hidden group hover:border-brand-accent hover:-translate-y-1 transition-all"
-            >
-              <div className="text-4xl font-extrabold font-display text-dark-700 group-hover:text-brand-accent/40 transition-colors">
-                {step.step}
+          {COMMISSION_STEPS.map((step, idx) => {
+            const pulseClass = idx % 2 === 0 ? 'auto-pulse-card-1' : 'auto-pulse-card-2';
+            return (
+              <div
+                key={step.step}
+                className={`bg-dark-900 border-2 border-dark-800 p-6 space-y-4 shadow-solid relative overflow-hidden group hover:border-brand-accent hover:-translate-y-1 transition-all ${pulseClass}`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="text-4xl font-extrabold font-display text-brand-accent/80 group-hover:text-brand-accent transition-colors">
+                    {step.step}
+                  </div>
+                  <span className="w-8 h-8 rounded-none bg-dark-950 border border-dark-700 flex items-center justify-center text-brand-cyber text-xs font-mono">
+                    {idx === 0 ? <Sparkles className="w-4 h-4" /> : idx === 1 ? <MessageSquare className="w-4 h-4" /> : idx === 2 ? <Palette className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-white font-display">{step.title}</h3>
+                <p className="text-xs text-neutral-300 leading-relaxed font-sans">{step.description}</p>
+                <div className="pt-2 border-t border-dark-800/80 text-[10px] font-mono text-neutral-500 uppercase">
+                  Milestone checkpoint {idx + 1} of 4
+                </div>
               </div>
-              <h3 className="text-lg font-bold text-white font-display">{step.title}</h3>
-              <p className="text-xs text-neutral-400 leading-relaxed font-sans">{step.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* 5. CLIENT TESTIMONIALS & REVIEWS SECTION */}
+      {/* 5. CLIENT TESTIMONIALS & REVIEWS SECTION (ACCURATE DATA MAPPING) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-left mb-12 border-b-2 border-dark-800 pb-6">
           <div className="inline-flex items-center gap-1.5 text-brand-amber font-mono text-xs font-bold tracking-widest uppercase mb-1">
             <Star className="w-4 h-4 fill-brand-amber text-brand-amber" />
-            <span>Proven Track Record</span>
+            <span>Verified Client Feedback</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display tracking-tight">
             CLIENT REVIEWS & REPUTATION
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-          {TESTIMONIALS.map((review) => (
-            <div
-              key={review.id}
-              className="bg-dark-900 border-2 border-dark-800 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-solid hover:border-brand-accent hover:-translate-y-1 transition-all"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center gap-1">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-brand-amber text-brand-amber" />
-                  ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+          {TESTIMONIALS.map((review, idx) => {
+            const pulseClass = idx % 2 === 0 ? 'auto-pulse-card-1' : 'auto-pulse-card-3';
+            return (
+              <div
+                key={review.id}
+                className={`bg-dark-900 border-2 border-dark-800 p-6 flex flex-col justify-between space-y-6 shadow-solid hover:border-brand-accent hover:-translate-y-1 transition-all ${pulseClass}`}
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center gap-1">
+                    {[...Array(review.rating || 5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-brand-amber text-brand-amber" />
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed italic">
+                    "{review.comment}"
+                  </p>
                 </div>
-                <p className="text-sm text-neutral-200 leading-relaxed italic">
-                  "{review.quote}"
-                </p>
-              </div>
 
-              <div className="pt-4 border-t border-dark-800 flex items-center justify-between">
-                <div>
-                  <div className="font-bold text-white font-display text-sm">{review.author}</div>
-                  <div className="text-[11px] font-mono text-neutral-400">{review.role}</div>
+                <div className="pt-4 border-t border-dark-800 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-white font-display text-sm">{review.name}</div>
+                    <div className="text-[11px] font-mono text-neutral-400">{review.role}</div>
+                  </div>
+                  <span className="text-[9px] font-mono bg-dark-950 px-2 py-1 border border-dark-800 text-brand-accent uppercase">
+                    {review.project}
+                  </span>
                 </div>
-                <span className="text-[10px] font-mono bg-dark-950 px-2 py-1 border border-dark-800 text-brand-accent">
-                  {review.project}
-                </span>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* 6. COMMON QUESTIONS (FAQ PREVIEW) */}
+      {/* 6. COMMON QUESTIONS (FAQ ACCORDION - FULLY POPULATED & INTERACTIVE) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
         <div className="text-center mb-12 space-y-2">
           <div className="inline-flex items-center gap-2 text-brand-cyber font-mono text-xs font-bold tracking-widest uppercase">
             <HelpCircle className="w-4 h-4" />
-            <span>Quick Answers</span>
+            <span>Everything You Need To Know</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display">
             FREQUENTLY ASKED QUESTIONS
           </h2>
+          <p className="text-xs sm:text-sm text-neutral-400">
+            Click any question to view answers regarding turnaround times, payments, files, and licensing.
+          </p>
         </div>
 
-        <div className="space-y-4">
-          {FAQS.slice(0, 4).map((faq, idx) => (
-            <div
-              key={idx}
-              className="bg-dark-900 border-2 border-dark-800 hover:border-brand-cyber p-6 space-y-2 shadow-solid transition-colors"
-            >
-              <h3 className="text-base font-bold text-white font-display flex items-center gap-3">
-                <span className="font-mono text-xs text-brand-accent">0{idx + 1}.</span>
-                <span>{faq.q}</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed pl-7">
-                {faq.a}
-              </p>
-            </div>
-          ))}
+        <div className="space-y-3">
+          {FAQS.slice(0, 6).map((faq, idx) => {
+            const isOpen = openFaq === idx;
+            return (
+              <div
+                key={idx}
+                className={`bg-dark-900 border-2 transition-all duration-200 ${
+                  isOpen ? 'border-brand-accent shadow-[0_0_20px_rgba(255,51,102,0.15)]' : 'border-dark-800 hover:border-dark-700'
+                }`}
+              >
+                <button
+                  onClick={() => toggleFaq(idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-xs font-bold text-brand-accent">0{idx + 1}.</span>
+                    <span className="text-sm sm:text-base font-bold text-white font-display">
+                      {faq.question}
+                    </span>
+                  </div>
+                  <span className="text-neutral-400 flex-shrink-0">
+                    {isOpen ? <ChevronUp className="w-4 h-4 text-brand-accent" /> : <ChevronDown className="w-4 h-4" />}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-dark-800 animate-in fade-in duration-200">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="text-center pt-8">
@@ -531,9 +589,9 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               setActiveView('contact');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:text-white inline-flex items-center gap-1.5 transition-colors"
+            className="btn-outline px-6 py-3 text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:text-white inline-flex items-center gap-2 transition-colors auto-shimmer"
           >
-            <span>HAVE MORE QUESTIONS? VISIT CONTACT & FAQ</span>
+            <span>VIEW ALL 10+ FAQ TOPICS ON CONTACT PAGE</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

@@ -30,17 +30,17 @@
 }
 
 @layer components {
-  /* Solid tactile buttons with smooth dynamic hover states */
+  /* Solid tactile buttons with smooth dynamic hover states & auto shimmer */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(255,51,102,0.4)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(255,51,102,0.5)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none relative overflow-hidden;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark-900 hover:bg-dark-850 text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-dark-700 hover:border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark-900 hover:bg-dark-850 text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-dark-700 hover:border-brand-accent transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(255,255,255,0.15)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none relative overflow-hidden;
   }
 
   .btn-cyber {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-cyber hover:bg-cyan-400 text-dark-950 font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-cyber transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,240,255,0.5)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-cyber hover:bg-cyan-400 text-dark-950 font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-cyber transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] active:translate-x-[2px] active:translate-y-[2px] shadow-solid active:shadow-none relative overflow-hidden;
   }
 
   .btn-outline {
@@ -110,18 +110,70 @@
   animation: sparkRise linear infinite;
 }
 
-/* Scanline sweep effect */
-@keyframes scanline {
-  0% {
-    transform: translateY(-100%);
+/* Auto-animating glowing borders & breathing animations for cards */
+@keyframes cardPulseGlowPink {
+  0%, 100% {
+    border-color: #242938;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
-  100% {
-    transform: translateY(1000%);
+  50% {
+    border-color: rgba(255, 51, 102, 0.7);
+    box-shadow: 0 8px 30px rgba(255, 51, 102, 0.2), 0 0 15px rgba(255, 51, 102, 0.15);
   }
 }
 
-.animate-scanline {
-  animation: scanline 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes cardPulseGlowCyan {
+  0%, 100% {
+    border-color: #242938;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    border-color: rgba(0, 240, 255, 0.7);
+    box-shadow: 0 8px 30px rgba(0, 240, 255, 0.2), 0 0 15px rgba(0, 240, 255, 0.15);
+  }
+}
+
+@keyframes cardPulseGlowAmber {
+  0%, 100% {
+    border-color: #242938;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    border-color: rgba(255, 184, 0, 0.7);
+    box-shadow: 0 8px 30px rgba(255, 184, 0, 0.2), 0 0 15px rgba(255, 184, 0, 0.15);
+  }
+}
+
+@keyframes buttonShimmerSweep {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  30%, 100% {
+    transform: translateX(200%) skewX(-20deg);
+  }
+}
+
+.auto-pulse-card-1 {
+  animation: cardPulseGlowPink 6s ease-in-out infinite;
+}
+
+.auto-pulse-card-2 {
+  animation: cardPulseGlowCyan 6s ease-in-out infinite 2s;
+}
+
+.auto-pulse-card-3 {
+  animation: cardPulseGlowAmber 6s ease-in-out infinite 4s;
+}
+
+.auto-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: buttonShimmerSweep 4s ease-in-out infinite;
 }
 
 /* Interactive navlink underline slide */
