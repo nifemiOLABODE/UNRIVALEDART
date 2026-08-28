@@ -1,6 +1,8 @@
-import React from 'react';
-import { Sparkles, Film, Lock, Eye, ShieldAlert, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Sparkles, Film, Lock, Eye, ShieldCheck, ChevronDown, Check } from 'lucide-react';
 import { ARTWORKS, NSFW_ARTWORKS, CATEGORIES } from '../data/artworks';
+
+const BATCH_SIZE = 12;
 
 export default function PortfolioView({ 
   onSelectArtwork, 
@@ -9,28 +11,53 @@ export default function PortfolioView({
   activeCategory = 'all',
   setActiveCategory
 }) {
+  const [internalCategory, setInternalCategory] = useState(activeCategory || 'all');
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+
+  // Sync internal category with prop if provided
+  useEffect(() => {
+    if (activeCategory) {
+      setInternalCategory(activeCategory);
+      setVisibleCount(BATCH_SIZE);
+    }
+  }, [activeCategory]);
+
+  const currentCategory = activeCategory || internalCategory;
 
   const handleCategoryChange = (catId) => {
     if (catId === 'nsfw' && !isAgeVerified) {
       onOpenAgeGate();
       return;
     }
+    setVisibleCount(BATCH_SIZE);
     if (setActiveCategory) {
       setActiveCategory(catId);
+    } else {
+      setInternalCategory(catId);
     }
   };
 
-  const getFilteredArtworks = () => {
-    if (activeCategory === 'nsfw') {
+  const getAllCategoryWorks = () => {
+    if (currentCategory === 'nsfw') {
       return isAgeVerified ? NSFW_ARTWORKS : [];
     }
-    if (activeCategory === 'all') {
+    if (currentCategory === 'all') {
       return ARTWORKS;
     }
-    return ARTWORKS.filter(art => art.category === activeCategory);
+    return ARTWORKS.filter(art => art.category === currentCategory);
   };
 
-  const displayedWorks = getFilteredArtworks();
+  const allFilteredWorks = getAllCategoryWorks();
+  const displayedWorks = allFilteredWorks.slice(0, visibleCount);
+  const hasMore = visibleCount < allFilteredWorks.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => Math.min(prev + BATCH_SIZE, allFilteredWorks.length));
+  };
+
+  const handleLoadAll = () => {
+    setVisibleCount(allFilteredWorks.length);
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 space-y-12">
@@ -52,7 +79,7 @@ export default function PortfolioView({
       {/* Filter Tabs */}
       <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         {CATEGORIES.map((cat) => {
-          const isActive = activeCategory === cat.id;
+          const isActive = currentCategory === cat.id;
           const isVault = cat.id === 'nsfw';
 
           return (
@@ -82,25 +109,25 @@ export default function PortfolioView({
       {/* Category count indicator */}
       <div className="flex items-center justify-between text-xs font-mono text-neutral-500 border-b border-dark-800 pb-3">
         <span>
-          {activeCategory === 'nsfw' && !isAgeVerified 
-            ? '18+ VAULT RESTRICTED' 
-            : `SHOWING ${displayedWorks.length} ARTWORKS`}
+          {currentCategory === 'nsfw' && !isAgeVerified 
+            ? '18+ VAULT (AGE VERIFICATION REQUIRED)' 
+            : `SHOWING ${displayedWorks.length} OF ${allFilteredWorks.length} ARTWORKS`}
         </span>
-        <span className="hidden sm:inline">HIGH-RESOLUTION RENDERINGS & ANIMATION REELS</span>
+        <span className="hidden sm:inline">SMOOTH LAZY-RENDERED GALLERY</span>
       </div>
 
-      {/* Locked Vault Message if unverified */}
-      {activeCategory === 'nsfw' && !isAgeVerified && (
-        <div className="bg-dark-900 border-2 border-brand-accent p-8 sm:p-12 text-center max-w-2xl mx-auto space-y-6 shadow-solid-accent">
-          <div className="w-16 h-16 bg-brand-accent/10 border-2 border-brand-accent text-brand-accent flex items-center justify-center mx-auto">
-            <ShieldAlert className="w-8 h-8" />
+      {/* Vault Locked Notification if user selected NSFW without age verification */}
+      {currentCategory === 'nsfw' && !isAgeVerified && (
+        <div className="bg-dark-900 border-2 border-brand-accent p-8 sm:p-12 text-center max-w-2xl mx-auto space-y-6 shadow-solid-accent my-8">
+          <div className="w-14 h-14 bg-brand-accent/10 border-2 border-brand-accent text-brand-accent flex items-center justify-center mx-auto">
+            <Lock className="w-7 h-7" />
           </div>
           <div className="space-y-2">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
-              18+ VAULT IS LOCKED
+            <h3 className="text-2xl font-extrabold text-white font-display">
+              18+ VAULT RESTRICTED
             </h3>
             <p className="text-sm text-neutral-300 max-w-md mx-auto">
-              This gallery contains 53 mature, pin-up, and uncensored illustrations. Age verification is required to view these works.
+              This category contains 53 mature, pin-up, and uncensored character artworks. Please verify your age to enter.
             </p>
           </div>
           <button
@@ -108,7 +135,7 @@ export default function PortfolioView({
             className="btn-primary px-8 py-3.5 font-mono text-xs tracking-widest inline-flex items-center gap-2"
           >
             <ShieldCheck className="w-4 h-4" />
-            <span>CONFIRM AGE & UNLOCK 53 VAULT ARTWORKS</span>
+            <span>CONFIRM AGE TO VIEW VAULT (18+)</span>
           </button>
         </div>
       )}
@@ -120,7 +147,7 @@ export default function PortfolioView({
             <div
               key={art.id}
               onClick={() => onSelectArtwork(art)}
-              className="group bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-300 cursor-pointer shadow-solid overflow-hidden flex flex-col justify-between"
+              className="group bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-200 cursor-pointer shadow-solid overflow-hidden flex flex-col justify-between"
             >
               {/* Image/Video Thumbnail Container */}
               <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
@@ -129,7 +156,9 @@ export default function PortfolioView({
                     <img
                       src={art.image}
                       alt={art.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-dark-950/40">
                       <div className="w-12 h-12 bg-brand-cyber text-dark-950 flex items-center justify-center shadow-solid-sm group-hover:scale-110 transition-transform">
@@ -142,11 +171,8 @@ export default function PortfolioView({
                     src={art.image}
                     alt={art.title}
                     loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      // Gracefully handle potential CDN delay
-                      console.warn('Image failed to load:', art.image);
-                    }}
+                    decoding="async"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 )}
 
@@ -165,7 +191,7 @@ export default function PortfolioView({
                     </p>
                     <div className="pt-2 flex items-center gap-1 text-xs font-mono text-brand-cyber font-bold uppercase">
                       <Eye className="w-3.5 h-3.5" />
-                      <span>Click to Expand Details</span>
+                      <span>Click to View Full Art</span>
                     </div>
                   </div>
                 </div>
@@ -187,6 +213,26 @@ export default function PortfolioView({
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* Progressive Load More Bar */}
+      {hasMore && (
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4 border-t-2 border-dark-800">
+          <button
+            onClick={handleLoadMore}
+            className="w-full sm:w-auto btn-primary px-8 py-4 font-mono text-xs tracking-widest flex items-center justify-center gap-2"
+          >
+            <ChevronDown className="w-4 h-4" />
+            <span>LOAD MORE WORKS (+{Math.min(BATCH_SIZE, allFilteredWorks.length - visibleCount)})</span>
+          </button>
+
+          <button
+            onClick={handleLoadAll}
+            className="w-full sm:w-auto btn-secondary px-6 py-4 font-mono text-xs tracking-widest text-neutral-400 hover:text-white"
+          >
+            <span>LOAD ALL ({allFilteredWorks.length})</span>
+          </button>
         </div>
       )}
     </div>

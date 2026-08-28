@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Sparkles, Heart } from 'lucide-react';
 
-export default function Footer({ setActiveView, onOpenShop, onOpenVault }) {
+export default function Footer({ setActiveView, onOpenShop }) {
   const currentYear = new Date().getFullYear();
 
   const handleNav = (view) => {
@@ -111,12 +111,6 @@ export default function Footer({ setActiveView, onOpenShop, onOpenVault }) {
               <li>
                 <button onClick={() => handleNav('contact')} className="hover:text-brand-accent transition-colors">
                   General Contact
-                </button>
-              </li>
-              <li>
-                <button onClick={onOpenVault} className="text-brand-accent hover:text-red-400 transition-colors flex items-center gap-1.5 font-bold">
-                  <span>18+ Vault Gallery</span>
-                  <span className="text-[10px] bg-brand-accent/20 px-1 py-0.2 border border-brand-accent/40 font-mono">18+</span>
                 </button>
               </li>
               <li>

@@ -56,16 +56,6 @@ export default function App() {
     setActiveView('portfolio');
   };
 
-  const handleOpenVault = () => {
-    if (!isAgeVerified) {
-      setIsAgeGateOpen(true);
-    } else {
-      setPortfolioCategory('nsfw');
-      setActiveView('portfolio');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-dark-950 text-neutral-100 flex flex-col font-sans selection:bg-brand-accent selection:text-white">
       
@@ -75,8 +65,6 @@ export default function App() {
         setActiveView={setActiveView}
         onOpenShop={() => setIsShopModalOpen(true)}
         onSelectService={handleSelectService}
-        onOpenVault={handleOpenVault}
-        isAgeVerified={isAgeVerified}
       />
 
       {/* Main Dynamic View Content */}
@@ -86,7 +74,6 @@ export default function App() {
             setActiveView={setActiveView}
             onSelectArtwork={(art) => setSelectedArtwork(art)}
             onSelectService={handleSelectService}
-            onOpenVault={handleOpenVault}
           />
         )}
 
@@ -131,7 +118,6 @@ export default function App() {
       <Footer 
         setActiveView={setActiveView} 
         onOpenShop={() => setIsShopModalOpen(true)} 
-        onOpenVault={handleOpenVault}
       />
 
       {/* Lightbox Modal */}
