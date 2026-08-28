@@ -152,20 +152,15 @@ export default function PortfolioView({
               {/* Image/Video Thumbnail Container */}
               <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                 {art.isVideo ? (
-                  <div className="relative w-full h-full">
-                    <img
-                      src={art.image}
-                      alt={art.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-80"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-dark-950/40">
-                      <div className="w-12 h-12 bg-brand-cyber text-dark-950 flex items-center justify-center shadow-solid-sm group-hover:scale-110 transition-transform">
-                        <Film className="w-6 h-6" />
-                      </div>
-                    </div>
-                  </div>
+                  <video
+                    src={art.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
+                  />
                 ) : (
                   <img
                     src={art.image}

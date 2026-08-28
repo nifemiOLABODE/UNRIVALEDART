@@ -91,30 +91,32 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
 
             </div>
 
-            {/* Hero Right Composition (Asymmetrical Interactive Showcase) */}
+            {/* Hero Right Composition (Vampire Queen Spotlight) */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Main Hero Card (Zuko Splash Art) */}
+                {/* Main Hero Card (Vampire Queen Splash Art) */}
                 <div 
-                  onClick={() => onSelectArtwork(ARTWORKS[0])}
+                  onClick={() => onSelectArtwork(ARTWORKS.find(a => a.id === 'ill-vampire-queen') || ARTWORKS[1])}
                   className="relative group cursor-pointer bg-dark-900 border-2 border-dark-700 hover:border-brand-accent transition-all duration-300 shadow-solid-lg overflow-hidden"
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden">
                     <img
-                      src="/Illustrations/Zuko splash art.png"
-                      alt="Zuko Splash Art by Unrivaled Art"
+                      src="/opt/Illustrations/Vampire Queen splash art.webp"
+                      alt="Vampire Queen by Unrivaled Art"
+                      loading="eager"
+                      decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter contrast-105"
                     />
                     
                     {/* Hover overlay with details */}
                     <div className="absolute inset-0 bg-dark-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-between text-left">
                       <span className="self-start px-2.5 py-1 bg-brand-accent text-white text-[11px] font-mono font-bold uppercase tracking-wider">
-                        Featured Splash Art
+                        Featured Masterpiece
                       </span>
                       <div>
-                        <h4 className="text-xl font-bold text-white font-display">Zuko — Fire & Embers</h4>
-                        <p className="text-xs text-neutral-300 mt-1 font-mono">Dynamic character art & lighting</p>
+                        <h4 className="text-xl font-bold text-white font-display">Vampire Queen</h4>
+                        <p className="text-xs text-neutral-300 mt-1 font-mono">Dark gothic character design & majestic aura</p>
                         <div className="mt-3 inline-flex items-center gap-1.5 text-xs text-brand-cyber font-bold font-mono uppercase">
                           <span>Click to Inspect Full Art</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -127,10 +129,10 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                   <div className="p-4 bg-dark-900 border-t-2 border-dark-800 flex items-center justify-between">
                     <div>
                       <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
-                        Zuko: Flame Master
+                        Vampire Queen
                       </div>
                       <div className="text-[11px] font-mono text-neutral-400">
-                        Illustration • 300 DPI
+                        Original Character • High Detail
                       </div>
                     </div>
                     <span className="px-2.5 py-1 bg-dark-800 border border-dark-700 text-brand-accent text-xs font-mono font-bold">
@@ -139,23 +141,25 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                   </div>
                 </div>
 
-                {/* Floating Supporting Artwork Card (Vampire Queen) */}
+                {/* Floating Supporting Artwork Card (Zuko) */}
                 <div 
-                  onClick={() => onSelectArtwork(ARTWORKS[1])}
+                  onClick={() => onSelectArtwork(ARTWORKS.find(a => a.id === 'ill-zuko-splash') || ARTWORKS[0])}
                   className="hidden sm:block absolute -bottom-8 -left-10 w-48 bg-dark-900 border-2 border-dark-700 hover:border-brand-accent cursor-pointer shadow-solid transition-all duration-300 p-2 group"
                 >
                   <div className="aspect-square bg-dark-950 overflow-hidden mb-2">
                     <img
-                      src="/Illustrations/Vampire Queen splash art.png"
-                      alt="Vampire Queen"
+                      src="/opt/Illustrations/Zuko splash art.webp"
+                      alt="Zuko Splash Art"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
                   <div className="text-[10px] font-mono font-bold text-white uppercase truncate">
-                    Vampire Queen
+                    Zuko — Fire & Embers
                   </div>
                   <div className="text-[9px] font-mono text-brand-accent uppercase">
-                    Dark Fantasy
+                    Splash Art
                   </div>
                 </div>
 
@@ -251,29 +255,31 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             </div>
           </div>
 
-          {/* Card 3: 2D Animation Reel Cut */}
+          {/* Card 3: 2D Animation Reel Cut (Auto-playing loop) */}
           <div 
             onClick={() => onSelectArtwork(ARTWORKS.find(a => a.isVideo) || featuredArtworks[3])}
             className="md:col-span-4 bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 group cursor-pointer shadow-solid-cyber flex flex-col justify-between overflow-hidden"
           >
             <div className="relative aspect-[4/3] bg-dark-950 overflow-hidden flex items-center justify-center">
-              <img
-                src={featuredArtworks[4]?.image || '/Illustrations/Battle elf illustration.png'}
-                alt="2D Animation Demo"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-60"
+              <video
+                src="/Animation/New Project 4 [64D7B43].mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center bg-dark-950/40">
-                <div className="w-14 h-14 bg-brand-cyber text-dark-950 flex items-center justify-center rounded-none shadow-solid-sm group-hover:scale-110 transition-transform">
-                  <Film className="w-7 h-7" />
-                </div>
-                <span className="mt-3 font-mono text-xs font-bold text-white uppercase tracking-widest">
-                  PLAY SAKUGA REEL
+              <div className="absolute top-4 left-4">
+                <span className="px-3 py-1 bg-dark-950/90 border border-brand-cyber text-brand-cyber font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-brand-cyber animate-pulse" />
+                  <span>2D Sakuga Cut</span>
                 </span>
               </div>
             </div>
             <div className="p-6 bg-dark-900 border-t-2 border-dark-800 text-left">
-              <div className="text-xs font-mono font-bold text-brand-cyber uppercase mb-1">2D Sakuga Cut</div>
-              <h3 className="text-lg font-bold text-white font-display">Frame-By-Frame Action Reel</h3>
+              <div className="text-xs font-mono font-bold text-brand-cyber uppercase mb-1">Sakuga 2D Animation</div>
+              <h3 className="text-lg font-bold text-white font-display">Frame-By-Frame Action Cut</h3>
             </div>
           </div>
 

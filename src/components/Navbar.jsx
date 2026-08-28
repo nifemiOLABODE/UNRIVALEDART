@@ -20,29 +20,6 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
 
   return (
     <header className="sticky top-0 z-40 bg-dark-950 border-b-2 border-dark-800">
-      {/* Top micro-announcement bar */}
-      <div className="bg-dark-900 border-b border-dark-800 px-4 py-1.5 text-xs text-neutral-400 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="font-mono text-emerald-400 font-semibold tracking-wider">COMMISSIONS OPEN</span>
-          <span className="hidden sm:inline text-neutral-500">• Available for covers, character art & animation</span>
-        </div>
-
-        <div className="flex items-center gap-4 text-xs font-mono">
-          <button 
-            onClick={onOpenShop}
-            className="flex items-center gap-1.5 text-brand-amber hover:text-amber-300 transition-colors uppercase tracking-wider font-semibold"
-          >
-            <ShoppingBag className="w-3.5 h-3.5" />
-            <span>Merch / Shop</span>
-            <span className="bg-brand-amber/20 text-brand-amber text-[10px] px-1.5 py-0.5 border border-brand-amber/40">SOON</span>
-          </button>
-        </div>
-      </div>
-
       {/* Main Navbar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
