@@ -17,10 +17,17 @@ export default function App() {
   const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [preselectedArtworkForCommission, setPreselectedArtworkForCommission] = useState(null);
+  const [portfolioCategory, setPortfolioCategory] = useState('all');
   
   const [isShopModalOpen, setIsShopModalOpen] = useState(false);
   const [isAgeGateOpen, setIsAgeGateOpen] = useState(false);
-  const [isAgeVerified, setIsAgeVerified] = useState(false);
+  const [isAgeVerified, setIsAgeVerified] = useState(() => {
+    try {
+      return localStorage.getItem('unrivaled_age_verified') === 'true';
+    } catch {
+      return false;
+    }
+  });
 
   // Commission button inside artwork lightbox
   const handleCommissionLikeThis = (artwork) => {
@@ -40,8 +47,23 @@ export default function App() {
   };
 
   const handleConfirmAge = () => {
+    try {
+      localStorage.setItem('unrivaled_age_verified', 'true');
+    } catch {}
     setIsAgeVerified(true);
     setIsAgeGateOpen(false);
+    setPortfolioCategory('nsfw');
+    setActiveView('portfolio');
+  };
+
+  const handleOpenVault = () => {
+    if (!isAgeVerified) {
+      setIsAgeGateOpen(true);
+    } else {
+      setPortfolioCategory('nsfw');
+      setActiveView('portfolio');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -53,6 +75,8 @@ export default function App() {
         setActiveView={setActiveView}
         onOpenShop={() => setIsShopModalOpen(true)}
         onSelectService={handleSelectService}
+        onOpenVault={handleOpenVault}
+        isAgeVerified={isAgeVerified}
       />
 
       {/* Main Dynamic View Content */}
@@ -62,6 +86,7 @@ export default function App() {
             setActiveView={setActiveView}
             onSelectArtwork={(art) => setSelectedArtwork(art)}
             onSelectService={handleSelectService}
+            onOpenVault={handleOpenVault}
           />
         )}
 
@@ -70,6 +95,8 @@ export default function App() {
             onSelectArtwork={(art) => setSelectedArtwork(art)}
             onOpenAgeGate={() => setIsAgeGateOpen(true)}
             isAgeVerified={isAgeVerified}
+            activeCategory={portfolioCategory}
+            setActiveCategory={setPortfolioCategory}
           />
         )}
 
@@ -104,6 +131,7 @@ export default function App() {
       <Footer 
         setActiveView={setActiveView} 
         onOpenShop={() => setIsShopModalOpen(true)} 
+        onOpenVault={handleOpenVault}
       />
 
       {/* Lightbox Modal */}

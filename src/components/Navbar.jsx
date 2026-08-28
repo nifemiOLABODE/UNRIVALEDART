@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Menu, X, Sparkles, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Menu, X, Sparkles, ShoppingBag, ArrowRight, Lock, ShieldCheck } from 'lucide-react';
 
-export default function Navbar({ activeView, setActiveView, onOpenShop, onSelectService }) {
+export default function Navbar({ activeView, setActiveView, onOpenShop, onSelectService, onOpenVault, isAgeVerified }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -32,9 +32,21 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
         </div>
 
         <div className="flex items-center gap-4 text-xs font-mono">
+          {/* Direct 18+ Vault Top Link */}
+          <button 
+            onClick={onOpenVault}
+            className="flex items-center gap-1.5 text-brand-accent hover:text-red-400 transition-colors uppercase tracking-wider font-semibold"
+          >
+            {isAgeVerified ? <ShieldCheck className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5" />}
+            <span>18+ Vault</span>
+            <span className="bg-brand-accent/20 text-brand-accent text-[10px] px-1 py-0.2 border border-brand-accent/40">
+              53 WORKS
+            </span>
+          </button>
+
           <button 
             onClick={onOpenShop}
-            className="flex items-center gap-1.5 text-brand-amber hover:text-amber-300 transition-colors uppercase tracking-wider font-semibold"
+            className="hidden sm:flex items-center gap-1.5 text-brand-amber hover:text-amber-300 transition-colors uppercase tracking-wider font-semibold"
           >
             <ShoppingBag className="w-3.5 h-3.5" />
             <span>Merch / Shop</span>
@@ -75,7 +87,7 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navItems.map((item) => {
               const isActive = activeView === item.id;
               return (
@@ -95,6 +107,15 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
                 </button>
               );
             })}
+
+            {/* Direct 18+ Vault Button in Nav */}
+            <button
+              onClick={onOpenVault}
+              className="text-xs font-mono font-bold tracking-wider uppercase text-brand-accent border border-brand-accent/40 bg-dark-900 hover:border-brand-accent hover:bg-brand-accent/10 px-3 py-1.5 transition-all flex items-center gap-1.5"
+            >
+              {isAgeVerified ? <ShieldCheck className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5" />}
+              <span>18+ Vault</span>
+            </button>
 
             {/* Direct Shop button */}
             <button
@@ -158,6 +179,22 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
                 {item.label}
               </button>
             ))}
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenVault();
+              }}
+              className="text-left text-base font-bold tracking-wider uppercase py-2.5 px-3 border-l-2 border-brand-accent text-brand-accent bg-brand-accent/10 flex items-center justify-between"
+            >
+              <div className="flex items-center gap-2">
+                <Lock className="w-4 h-4" />
+                <span>18+ Vault Gallery</span>
+              </div>
+              <span className="text-xs bg-brand-accent text-white px-2 py-0.5 font-mono font-bold">
+                53 WORKS
+              </span>
+            </button>
 
             <button
               onClick={() => {

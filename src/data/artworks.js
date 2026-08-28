@@ -2173,7 +2173,7 @@ export const NSFW_ARTWORKS = [
     title: 'Cursed Romance',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/cursed color.jpg',
+    image: '/nsfw-vault/cursed color.jpg',
     year: '2025',
     description: 'Sensual full-color character composition with moody atmospheric lighting.',
     tags: ['18+', 'Pin-up', 'Moody']
@@ -2183,7 +2183,7 @@ export const NSFW_ARTWORKS = [
     title: 'Midnight Sirens',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409112112075940.png',
+    image: '/nsfw-vault/export202409112112075940.png',
     year: '2024',
     description: 'Stylized character pinup illustration with high-contrast shadows and clean anatomy.',
     tags: ['18+', 'Character Study', 'Pin-up']
@@ -2193,7 +2193,7 @@ export const NSFW_ARTWORKS = [
     title: 'Eclipse Passion',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202502151400039286.png',
+    image: '/nsfw-vault/export202502151400039286.png',
     year: '2025',
     description: 'Expressive comic-style sequential panel artwork for adult readership.',
     tags: ['18+', 'Sequential Art', 'Adult Fiction']
@@ -2203,7 +2203,7 @@ export const NSFW_ARTWORKS = [
     title: 'Crimson Velvet',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202408192317483570.png',
+    image: '/nsfw-vault/export202408192317483570.png',
     year: '2024',
     description: 'Ornate fantasy boudoir illustration with intricate textures.',
     tags: ['18+', 'Fantasy', 'Boudoir']
@@ -2213,7 +2213,7 @@ export const NSFW_ARTWORKS = [
     title: 'Forbidden Ink I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202305272212318520.jpeg',
+    image: '/nsfw-vault/export202305272212318520.jpeg',
     year: '2023',
     description: 'Early ink-heavy mature illustration with bold outlines and expressive anatomy.',
     tags: ['18+', 'Ink Work', 'Bold']
@@ -2223,7 +2223,7 @@ export const NSFW_ARTWORKS = [
     title: 'Forbidden Ink II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202307051427269350.jpeg',
+    image: '/nsfw-vault/export202307051427269350.jpeg',
     year: '2023',
     description: 'Detailed character illustration with strong linework and sensual composition.',
     tags: ['18+', 'Linework', 'Composition']
@@ -2233,7 +2233,7 @@ export const NSFW_ARTWORKS = [
     title: 'Forbidden Ink III',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202307051429026460.jpeg',
+    image: '/nsfw-vault/export202307051429026460.jpeg',
     year: '2023',
     description: 'Companion piece with matching style, featuring alternate pose and expression.',
     tags: ['18+', 'Companion Piece', 'Alternate Pose']
@@ -2243,7 +2243,7 @@ export const NSFW_ARTWORKS = [
     title: 'Scarlet Temptation',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202405021224060040.jpeg',
+    image: '/nsfw-vault/export202405021224060040.jpeg',
     year: '2024',
     description: 'Red-toned sensual character art with dramatic fabric draping and warm ambient glow.',
     tags: ['18+', 'Scarlet', 'Fabric']
@@ -2253,7 +2253,7 @@ export const NSFW_ARTWORKS = [
     title: 'Moonlit Desire',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202405032148203040.jpeg',
+    image: '/nsfw-vault/export202405032148203040.jpeg',
     year: '2024',
     description: 'Night-lit boudoir illustration with lunar highlights and soft shadow gradients.',
     tags: ['18+', 'Moonlit', 'Soft Shadows']
@@ -2263,7 +2263,7 @@ export const NSFW_ARTWORKS = [
     title: 'Silken Veil',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202405081811168520.jpeg',
+    image: '/nsfw-vault/export202405081811168520.jpeg',
     year: '2024',
     description: 'Delicate semi-transparent fabric study with elegant character pose and diffused lighting.',
     tags: ['18+', 'Silk', 'Elegant']
@@ -2273,7 +2273,7 @@ export const NSFW_ARTWORKS = [
     title: 'Obsidian Rose',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202405301637037330.jpeg',
+    image: '/nsfw-vault/export202405301637037330.jpeg',
     year: '2024',
     description: 'Dark floral motif mature illustration with obsidian color scheme and botanical accents.',
     tags: ['18+', 'Floral', 'Dark Aesthetic']
@@ -2283,7 +2283,7 @@ export const NSFW_ARTWORKS = [
     title: 'Golden Hour',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202406251525169430.png',
+    image: '/nsfw-vault/export202406251525169430.png',
     year: '2024',
     description: 'Warm golden-hour lighting study featuring figure in natural light with rich warm tones.',
     tags: ['18+', 'Golden Hour', 'Warm Tones']
@@ -2293,7 +2293,7 @@ export const NSFW_ARTWORKS = [
     title: 'Ember Glow',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202406252343007090.jpeg',
+    image: '/nsfw-vault/export202406252343007090.jpeg',
     year: '2024',
     description: 'Ember-lit intimate composition with subsurface scattering light effects.',
     tags: ['18+', 'Ember', 'SSS Lighting']
@@ -2303,7 +2303,7 @@ export const NSFW_ARTWORKS = [
     title: 'Twilight Muse',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202406271714534120.jpeg',
+    image: '/nsfw-vault/export202406271714534120.jpeg',
     year: '2024',
     description: 'Twilight-toned character study with artistic muse concept and dreamy atmosphere.',
     tags: ['18+', 'Twilight', 'Muse']
@@ -2313,7 +2313,7 @@ export const NSFW_ARTWORKS = [
     title: 'Violet Enchantment',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202407251552315150.png',
+    image: '/nsfw-vault/export202407251552315150.png',
     year: '2024',
     description: 'Purple-violet color scheme with enchanting magical effects and sensual character art.',
     tags: ['18+', 'Violet', 'Enchantment']
@@ -2323,7 +2323,7 @@ export const NSFW_ARTWORKS = [
     title: 'Mystic Bath',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202407251940546420.png',
+    image: '/nsfw-vault/export202407251940546420.png',
     year: '2024',
     description: 'Mystical bathing scene with ethereal water effects and soft ambient glows.',
     tags: ['18+', 'Mystic', 'Water FX']
@@ -2333,7 +2333,7 @@ export const NSFW_ARTWORKS = [
     title: 'Phantom Touch',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202407272038308520.png',
+    image: '/nsfw-vault/export202407272038308520.png',
     year: '2024',
     description: 'Ghostly ethereal figure study with translucent overlays and subtle color shifts.',
     tags: ['18+', 'Phantom', 'Translucent']
@@ -2343,7 +2343,7 @@ export const NSFW_ARTWORKS = [
     title: 'Sapphire Dream',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202407292239492300.png',
+    image: '/nsfw-vault/export202407292239492300.png',
     year: '2024',
     description: 'Blue-sapphire toned dreamy composition with soft-focus background and luminous highlights.',
     tags: ['18+', 'Sapphire', 'Dream']
@@ -2353,7 +2353,7 @@ export const NSFW_ARTWORKS = [
     title: 'Rose Petal',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202408020818064510.png',
+    image: '/nsfw-vault/export202408020818064510.png',
     year: '2024',
     description: 'Rose-themed character illustration with petal scatter effects and soft romantic lighting.',
     tags: ['18+', 'Rose', 'Romantic']
@@ -2363,7 +2363,7 @@ export const NSFW_ARTWORKS = [
     title: 'Shadow Dance',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202408211630516790.png',
+    image: '/nsfw-vault/export202408211630516790.png',
     year: '2024',
     description: 'Dynamic shadow-play figure study with dramatic chiaroscuro and dance-like posing.',
     tags: ['18+', 'Shadow', 'Dance']
@@ -2373,7 +2373,7 @@ export const NSFW_ARTWORKS = [
     title: 'Infernal Beauty',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409082101132790.png',
+    image: '/nsfw-vault/export202409082101132790.png',
     year: '2024',
     description: 'Infernal-themed character art with demonic accents, flame effects, and dark allure.',
     tags: ['18+', 'Infernal', 'Demonic']
@@ -2383,7 +2383,7 @@ export const NSFW_ARTWORKS = [
     title: 'Starlit Embrace',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409091844564340.png',
+    image: '/nsfw-vault/export202409091844564340.png',
     year: '2024',
     description: 'Starfield backdrop with embracing figures, cosmic particle accents, and deep space tones.',
     tags: ['18+', 'Starlit', 'Cosmic']
@@ -2393,7 +2393,7 @@ export const NSFW_ARTWORKS = [
     title: 'Crystal Chamber',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409122244243650.png',
+    image: '/nsfw-vault/export202409122244243650.png',
     year: '2024',
     description: 'Crystalline environment with refractive lighting and elegant figure composition.',
     tags: ['18+', 'Crystal', 'Refractive']
@@ -2403,7 +2403,7 @@ export const NSFW_ARTWORKS = [
     title: 'Silk & Steel',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409141358124180.png',
+    image: '/nsfw-vault/export202409141358124180.png',
     year: '2024',
     description: 'Contrasting soft silk and hard steel elements in a mature character composition.',
     tags: ['18+', 'Silk', 'Steel']
@@ -2413,7 +2413,7 @@ export const NSFW_ARTWORKS = [
     title: 'Neon Vice',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409191741371430.png',
+    image: '/nsfw-vault/export202409191741371430.png',
     year: '2024',
     description: 'Neon-soaked cyberpunk-inspired mature illustration with vivid city glow reflections.',
     tags: ['18+', 'Neon', 'Cyberpunk']
@@ -2423,7 +2423,7 @@ export const NSFW_ARTWORKS = [
     title: 'Velvet Night',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202409201539005720.png',
+    image: '/nsfw-vault/export202409201539005720.png',
     year: '2024',
     description: 'Deep velvet-toned nighttime figure study with luxurious textile rendering.',
     tags: ['18+', 'Velvet', 'Night']
@@ -2433,7 +2433,7 @@ export const NSFW_ARTWORKS = [
     title: 'Lotus Flame',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410031344483750.png',
+    image: '/nsfw-vault/export202410031344483750.png',
     year: '2024',
     description: 'Lotus flower and flame motif fusion in a sensual character art piece.',
     tags: ['18+', 'Lotus', 'Flame']
@@ -2443,7 +2443,7 @@ export const NSFW_ARTWORKS = [
     title: 'Mercury Rising — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410141435466310.png',
+    image: '/nsfw-vault/export202410141435466310.png',
     year: '2024',
     description: 'Liquid mercury-themed illustration with metallic reflections and fluid form.',
     tags: ['18+', 'Mercury', 'Metallic']
@@ -2453,7 +2453,7 @@ export const NSFW_ARTWORKS = [
     title: 'Mercury Rising — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410141637272370.png',
+    image: '/nsfw-vault/export202410141637272370.png',
     year: '2024',
     description: 'Continuation of the mercury series with alternate angle and enhanced surface detail.',
     tags: ['18+', 'Mercury', 'Surface Detail']
@@ -2463,7 +2463,7 @@ export const NSFW_ARTWORKS = [
     title: 'Absinthe Dream — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410150016571610.png',
+    image: '/nsfw-vault/export202410150016571610.png',
     year: '2024',
     description: 'Green-tinted hallucinatory art piece inspired by absinthe aesthetics and art nouveau.',
     tags: ['18+', 'Absinthe', 'Art Nouveau']
@@ -2473,7 +2473,7 @@ export const NSFW_ARTWORKS = [
     title: 'Absinthe Dream — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410150110196830.png',
+    image: '/nsfw-vault/export202410150110196830.png',
     year: '2024',
     description: 'Extended absinthe dream sequence with deeper hallucinatory elements and ornate framing.',
     tags: ['18+', 'Absinthe', 'Ornate']
@@ -2483,7 +2483,7 @@ export const NSFW_ARTWORKS = [
     title: 'Absinthe Dream — III',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202410150148573190.png',
+    image: '/nsfw-vault/export202410150148573190.png',
     year: '2024',
     description: 'Final piece of the absinthe trilogy with surreal composition and emerald highlights.',
     tags: ['18+', 'Absinthe', 'Surreal']
@@ -2493,7 +2493,7 @@ export const NSFW_ARTWORKS = [
     title: 'Midnight Ritual — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411022110568750.png',
+    image: '/nsfw-vault/export202411022110568750.png',
     year: '2024',
     description: 'Dark ritual-themed mature art with candlelight atmosphere and mystical sigils.',
     tags: ['18+', 'Ritual', 'Candlelight']
@@ -2503,7 +2503,7 @@ export const NSFW_ARTWORKS = [
     title: 'Midnight Ritual — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411032305476940.png',
+    image: '/nsfw-vault/export202411032305476940.png',
     year: '2024',
     description: 'Continuation of the ritual series with deeper shadow work and pentagram motifs.',
     tags: ['18+', 'Ritual', 'Shadow Work']
@@ -2513,7 +2513,7 @@ export const NSFW_ARTWORKS = [
     title: 'Midnight Ritual — III',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411050022211710.png',
+    image: '/nsfw-vault/export202411050022211710.png',
     year: '2024',
     description: 'Climactic ritual scene with energy emanation and dramatic figure revelation.',
     tags: ['18+', 'Ritual', 'Energy']
@@ -2523,7 +2523,7 @@ export const NSFW_ARTWORKS = [
     title: 'Dark Orchid — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411060113195930.png',
+    image: '/nsfw-vault/export202411060113195930.png',
     year: '2024',
     description: 'Dark orchid color scheme with botanical body art and elegant shadowing.',
     tags: ['18+', 'Orchid', 'Botanical']
@@ -2533,7 +2533,7 @@ export const NSFW_ARTWORKS = [
     title: 'Dark Orchid — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411062331388720.png',
+    image: '/nsfw-vault/export202411062331388720.png',
     year: '2024',
     description: 'Extended orchid theme with deeper saturation and more elaborate floral integration.',
     tags: ['18+', 'Orchid', 'Saturated']
@@ -2543,7 +2543,7 @@ export const NSFW_ARTWORKS = [
     title: 'Ivory Throne — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411212252574080.png',
+    image: '/nsfw-vault/export202411212252574080.png',
     year: '2024',
     description: 'Ivory and gold regal boudoir scene with opulent throne and rich texture rendering.',
     tags: ['18+', 'Ivory', 'Regal']
@@ -2553,7 +2553,7 @@ export const NSFW_ARTWORKS = [
     title: 'Ivory Throne — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411221729259110.png',
+    image: '/nsfw-vault/export202411221729259110.png',
     year: '2024',
     description: 'Alternate perspective of the ivory throne composition with enhanced detail.',
     tags: ['18+', 'Ivory', 'Perspective']
@@ -2563,7 +2563,7 @@ export const NSFW_ARTWORKS = [
     title: 'Amber Devotion',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411231956188160.png',
+    image: '/nsfw-vault/export202411231956188160.png',
     year: '2024',
     description: 'Amber-toned devotional art piece with warm backlighting and reverent composition.',
     tags: ['18+', 'Amber', 'Devotion']
@@ -2573,7 +2573,7 @@ export const NSFW_ARTWORKS = [
     title: 'Celestial Sin — I',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411242257402880.png',
+    image: '/nsfw-vault/export202411242257402880.png',
     year: '2024',
     description: 'Heaven-meets-earth themed mature illustration with angelic and fallen motifs.',
     tags: ['18+', 'Celestial', 'Angelic']
@@ -2583,7 +2583,7 @@ export const NSFW_ARTWORKS = [
     title: 'Celestial Sin — II',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202411242328218010.png',
+    image: '/nsfw-vault/export202411242328218010.png',
     year: '2024',
     description: 'Companion piece exploring the fallen aspect with dark wing motifs and divine contrast.',
     tags: ['18+', 'Fallen', 'Wing Motif']
@@ -2593,7 +2593,7 @@ export const NSFW_ARTWORKS = [
     title: 'Garnet Whisper',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202412112036326810.png',
+    image: '/nsfw-vault/export202412112036326810.png',
     year: '2024',
     description: 'Deep garnet color scheme with whisper-quiet intimate composition and gemstone accents.',
     tags: ['18+', 'Garnet', 'Intimate']
@@ -2603,7 +2603,7 @@ export const NSFW_ARTWORKS = [
     title: 'Jade Serpent',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202412121804428849.png',
+    image: '/nsfw-vault/export202412121804428849.png',
     year: '2024',
     description: 'Jade-green serpentine motif with sinuous figure work and Eastern-inspired elements.',
     tags: ['18+', 'Jade', 'Serpentine']
@@ -2613,7 +2613,7 @@ export const NSFW_ARTWORKS = [
     title: 'Black Lace',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202412132044565459.png',
+    image: '/nsfw-vault/export202412132044565459.png',
     year: '2024',
     description: 'Intricate black lace overlay illustration with detailed textile patterns and contrast lighting.',
     tags: ['18+', 'Lace', 'Textile']
@@ -2623,7 +2623,7 @@ export const NSFW_ARTWORKS = [
     title: 'Ruby Cascade',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202412141930337277.png',
+    image: '/nsfw-vault/export202412141930337277.png',
     year: '2024',
     description: 'Cascading ruby-red fabric study with flowing drapery and warm backlight.',
     tags: ['18+', 'Ruby', 'Cascade']
@@ -2633,7 +2633,7 @@ export const NSFW_ARTWORKS = [
     title: 'Obsidian Mirror',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202412142359521755.png',
+    image: '/nsfw-vault/export202412142359521755.png',
     year: '2024',
     description: 'Reflective obsidian surface composition with mirror-image figure and dark metallic tones.',
     tags: ['18+', 'Obsidian', 'Mirror']
@@ -2643,7 +2643,7 @@ export const NSFW_ARTWORKS = [
     title: 'Aurora Veil',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501032144547066.png',
+    image: '/nsfw-vault/export202501032144547066.png',
     year: '2025',
     description: 'Northern aurora-inspired veil composition with iridescent color bands and ethereal glow.',
     tags: ['18+', 'Aurora', 'Iridescent']
@@ -2653,7 +2653,7 @@ export const NSFW_ARTWORKS = [
     title: 'Tempest Desire',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501041743335492.png',
+    image: '/nsfw-vault/export202501041743335492.png',
     year: '2025',
     description: 'Storm-themed mature illustration with wind-swept hair and electricity effects.',
     tags: ['18+', 'Tempest', 'Electric']
@@ -2663,7 +2663,7 @@ export const NSFW_ARTWORKS = [
     title: 'Phantom Kiss',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501051914005332.png',
+    image: '/nsfw-vault/export202501051914005332.png',
     year: '2025',
     description: 'Ghostly romantic composition with translucent phantom figure and tender pose.',
     tags: ['18+', 'Phantom', 'Romantic']
@@ -2673,7 +2673,7 @@ export const NSFW_ARTWORKS = [
     title: 'Starfire',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501052109257414.png',
+    image: '/nsfw-vault/export202501052109257414.png',
     year: '2025',
     description: 'Star-themed fire composition with cosmic flames and radiant figure silhouette.',
     tags: ['18+', 'Starfire', 'Cosmic Flame']
@@ -2683,7 +2683,7 @@ export const NSFW_ARTWORKS = [
     title: 'Divine Corruption',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501192208119254.png',
+    image: '/nsfw-vault/export202501192208119254.png',
     year: '2025',
     description: 'Duality-themed piece contrasting divine light and corruption darkness on a single figure.',
     tags: ['18+', 'Divine', 'Corruption']
@@ -2693,7 +2693,7 @@ export const NSFW_ARTWORKS = [
     title: 'Eternal Flame',
     category: 'nsfw',
     categoryLabel: 'Vault (18+)',
-    image: '/Nsfw pages 18+/export202501211610236272.png',
+    image: '/nsfw-vault/export202501211610236272.png',
     year: '2025',
     description: 'Eternal flame motif with perpetual fire effects and powerful character presence.',
     tags: ['18+', 'Eternal', 'Flame']
