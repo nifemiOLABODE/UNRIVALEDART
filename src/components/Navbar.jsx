@@ -29,11 +29,11 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
             onClick={() => handleNavClick('home')}
             className="flex items-center gap-3 group text-left focus:outline-none flex-shrink-0 transition-transform duration-200 hover:scale-[1.02]"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-dark-900 border-2 border-dark-700 group-hover:border-brand-accent group-hover:shadow-[0_0_15px_rgba(255,51,102,0.4)] transition-all duration-300 flex items-center justify-center p-1 shadow-solid-sm flex-shrink-0">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
               <img 
                 src="/logo/My logo.PNG" 
                 alt="Unrivaled Art Logo" 
-                className="w-full h-full object-contain filter contrast-125 group-hover:rotate-6 transition-transform duration-300"
+                className="w-full h-full object-contain group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

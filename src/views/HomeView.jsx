@@ -27,7 +27,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
   ];
 
   return (
-    <div className="relative overflow-hidden space-y-24 sm:space-y-32 pb-24">
+    <div className="relative overflow-hidden space-y-20 sm:space-y-28 pb-20">
       
       {/* ═══════════════════════════════════════════════════════════
           DYNAMIC SAKUGA / LASER GRID BACKGROUND
@@ -60,7 +60,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
       </div>
 
       {/* 1. HERO SECTION */}
-      <section className="relative pt-12 sm:pt-20 lg:pt-28 overflow-hidden z-10">
+      <section className="relative pt-4 sm:pt-6 lg:pt-8 overflow-hidden z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             

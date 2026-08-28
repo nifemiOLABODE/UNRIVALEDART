@@ -53,12 +53,11 @@ export default function Footer({ setActiveView, onOpenShop }) {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-dark-900 border-2 border-dark-700 flex items-center justify-center p-1">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center flex-shrink-0">
                 <img 
                   src="/logo/My logo.PNG" 
                   alt="Logo" 
                   className="w-full h-full object-contain"
-                  onError={(e) => { e.target.style.display = 'none'; }}
                 />
               </div>
               <div>
