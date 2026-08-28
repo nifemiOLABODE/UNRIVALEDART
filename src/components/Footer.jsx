@@ -62,8 +62,10 @@ export default function Footer({ setActiveView, onOpenShop }) {
                 />
               </div>
               <div>
-                <div className="text-xl font-extrabold tracking-widest-brand text-white font-display">
-                  U N R I V A L <span className="text-brand-accent">Ξ</span> D
+                <div className="text-xl font-extrabold text-white font-display tracking-[0.18em] flex items-center select-none uppercase">
+                  <span>UNRIVAL</span>
+                  <span className="text-brand-accent font-mono mx-[1px] font-bold">Ξ</span>
+                  <span>D</span>
                 </div>
                 <div className="text-[10px] font-mono tracking-widest text-neutral-400 uppercase">
                   Art & Visual Studio

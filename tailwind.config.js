@@ -26,8 +26,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Space Grotesk"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        display: ['"Cabinet Grotesk"', '"Space Grotesk"', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', '"Outfit"', '"Syne"', 'sans-serif'],
+        brand: ['"Space Grotesk"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {

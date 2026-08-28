@@ -50,9 +50,9 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
           {/* Brand Logo */}
           <button 
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 group text-left focus:outline-none"
+            className="flex items-center gap-3 group text-left focus:outline-none flex-shrink-0"
           >
-            <div className="w-11 h-11 bg-dark-900 border-2 border-dark-700 group-hover:border-brand-accent transition-colors flex items-center justify-center p-1 shadow-solid-sm">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-dark-900 border-2 border-dark-700 group-hover:border-brand-accent transition-colors flex items-center justify-center p-1 shadow-solid-sm flex-shrink-0">
               <img 
                 src="/logo/My logo.PNG" 
                 alt="Unrivaled Art Logo" 
@@ -63,10 +63,12 @@ export default function Navbar({ activeView, setActiveView, onOpenShop, onSelect
               />
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-extrabold tracking-widest-brand text-white group-hover:text-brand-accent transition-colors font-display">
-                U N R I V A L <span className="text-brand-accent">Ξ</span> D
+              <div className="text-lg sm:text-xl font-extrabold text-white group-hover:text-brand-accent transition-colors font-display tracking-[0.18em] flex items-center select-none uppercase">
+                <span>UNRIVAL</span>
+                <span className="text-brand-accent font-mono mx-[1px] font-bold">Ξ</span>
+                <span>D</span>
               </div>
-              <div className="text-[10px] font-mono tracking-widest uppercase text-neutral-400">
+              <div className="text-[9px] sm:text-[10px] font-mono tracking-widest uppercase text-neutral-400">
                 ART & VISUAL STUDIO
               </div>
             </div>
