@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-950 text-neutral-200 tracking-tight;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 51, 102, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.04) 0%, transparent 45%);
+    background-attachment: fixed;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d0f17;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222638;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF3366;
+  }
+}
+
+@layer components {
+  /* Solid tactile buttons without glassmorphism */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-accent hover:bg-brand-accentHover text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-accent transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-dark-900 hover:bg-dark-850 text-white font-bold text-sm tracking-wider uppercase rounded-none border-2 border-dark-700 hover:border-neutral-400 transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+  }
+
+  .btn-cyber {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-brand-cyber hover:bg-cyan-400 text-dark-950 font-bold text-sm tracking-wider uppercase rounded-none border-2 border-brand-cyber transition-all duration-200 active:translate-x-[2px] active:translate-y-[2px] shadow-solid hover:shadow-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-transparent hover:bg-dark-850 text-neutral-300 hover:text-white font-semibold text-xs tracking-wider uppercase rounded-none border border-dark-700 hover:border-brand-accent transition-all duration-200;
+  }
+
+  /* Solid cards */
+  .card-surface {
+    @apply bg-dark-900 border-2 border-dark-800 hover:border-dark-700 transition-colors duration-200;
+  }
+
+  .card-highlight {
+    @apply bg-dark-900 border-2 border-brand-accent/50 hover:border-brand-accent transition-colors duration-200;
+  }
+
+  /* Brand Typography */
+  .brand-logo-text {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.25em;
+  }
+}
+
+/* Diagonal stripe accents for manga/action feel */
+.manga-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.manga-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+}

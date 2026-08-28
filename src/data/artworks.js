@@ -1,0 +1,495 @@
+// Comprehensive structured catalog of Unrivaled Artworks
+export const ARTWORKS = [
+  // FEATURED & HERO ARTWORKS
+  {
+    id: 'zuko-splash',
+    title: 'Zuko — Fire & Embers',
+    category: 'illustration',
+    categoryLabel: 'Illustration',
+    image: '/Illustrations/Zuko splash art.png',
+    featured: true,
+    year: '2026',
+    client: 'Featured Splash Art',
+    description: 'Dynamic character splash illustration showcasing master firebending motion, intense rim lighting, and dramatic atmospheric heat.',
+    tags: ['Splash Art', 'Dynamic Lighting', 'Firebending', 'Action'],
+    aspect: 'tall'
+  },
+  {
+    id: 'vampire-queen',
+    title: 'Vampire Queen',
+    category: 'illustration',
+    categoryLabel: 'Illustration',
+    image: '/Illustrations/Vampire Queen splash art.png',
+    featured: true,
+    year: '2026',
+    client: 'Personal Franchise',
+    description: 'Dark fantasy character illustration featuring high-contrast gothic palettes, blood-red moon aura, and ornate regal design.',
+    tags: ['Gothic Fantasy', 'Character Art', 'Ornate Costume', 'Mood'],
+    aspect: 'wide'
+  },
+  {
+    id: 'ninja-cover',
+    title: 'Shadow Shinobi — Volume Cover',
+    category: 'cover-arts',
+    categoryLabel: 'Book Covers',
+    image: '/Cover arts/ninja cover copy1.jpg',
+    featured: true,
+    year: '2025',
+    client: 'Indie Author & Webcomic Series',
+    description: 'High-octane martial arts manga cover art with kinetic ink lines, custom typography placement, and intense contrast.',
+    tags: ['Book Cover', 'Manga', 'Martial Arts', 'Typography'],
+    aspect: 'tall'
+  },
+  {
+    id: 'gold-bullet-2',
+    title: 'Gold Bullet II — Film Poster',
+    category: 'cover-arts',
+    categoryLabel: 'Cover Arts',
+    image: '/Cover arts/gold bullet 2 poster.jpg',
+    featured: true,
+    year: '2025',
+    client: 'Cinematic Poster Project',
+    description: 'Key visual poster composition with stylized action choreography, retro-futuristic hues, and vibrant focal points.',
+    tags: ['Poster Art', 'Key Visual', 'Action', 'Cinematic'],
+    aspect: 'tall'
+  },
+  {
+    id: 'battle-elf',
+    title: 'Battle Elf Warrior',
+    category: 'illustration',
+    categoryLabel: 'Illustration',
+    image: '/Illustrations/Battle elf illustration.png',
+    featured: true,
+    year: '2025',
+    client: 'Fantasy Worldbuilding',
+    description: 'Full-rendered fantasy combatant in motion, demonstrating detailed armor rendering, kinetic particle effects, and dynamic perspective.',
+    tags: ['Fantasy', 'Armor Render', 'Dynamic Perspective'],
+    aspect: 'square'
+  },
+  {
+    id: 'meta-6',
+    title: 'META 06 — Cyberpunk Cover',
+    category: 'cover-arts',
+    categoryLabel: 'Book Covers',
+    image: '/Cover arts/META 6 REDO copy 1.jpg',
+    featured: true,
+    year: '2025',
+    client: 'Cyberpunk Anthology',
+    description: 'Full cover illustration featuring sci-fi cyberpunk character designs, neon grit, and mechanical anatomy.',
+    tags: ['Sci-Fi', 'Cyberpunk', 'Graphic Novel Cover'],
+    aspect: 'tall'
+  },
+
+  // CHARACTER DESIGNS
+  {
+    id: 'char-pf-1',
+    title: 'Apex Striker — Model Sheet',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/character design PF copy.jpg',
+    featured: true,
+    year: '2025',
+    client: 'Indie Game Concept',
+    description: 'Full turnaround and expression sheet for an agile cyberpunk protagonist with modular cybernetic limbs and streetwear aesthetics.',
+    tags: ['Model Sheet', 'Cyberpunk', 'Turnaround', 'Costume Design'],
+    aspect: 'tall'
+  },
+  {
+    id: 'char-pf-2',
+    title: 'Tactical Operative Concept',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/CHARACTER DESIGN 2 PF copy.jpg',
+    featured: true,
+    year: '2025',
+    client: 'Character Commission',
+    description: 'Weapon loadouts, silhouette studies, and multi-angle gear breakdowns crafted for 3D modeling and animation pipelines.',
+    tags: ['Gear Design', 'Turnaround', 'Concept Sheet'],
+    aspect: 'wide'
+  },
+  {
+    id: 'char-comm-1',
+    title: 'Blade Prodigy — Commission',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/ch design commission copy1.jpg',
+    featured: false,
+    year: '2024',
+    client: 'Private Collector',
+    description: 'Custom stylized hero character design with dynamic posture, cape physics, and personalized weapon props.',
+    tags: ['Custom OC', 'Commission', 'Fantasy'],
+    aspect: 'square'
+  },
+  {
+    id: 'char-exp-3',
+    title: 'Neo Tokyo Vanguard',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/character d 3 copy.jpg',
+    featured: false,
+    year: '2024',
+    client: 'IP Development',
+    description: 'Color exploration, streetwear tech, and expression variants tailored for manga serialization.',
+    tags: ['Streetwear', 'Anime Style', 'Expression Sheet'],
+    aspect: 'tall'
+  },
+  {
+    id: 'char-2024-08',
+    title: 'Ronin Cyber Armor',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/export202408181442481680.png',
+    featured: false,
+    year: '2024',
+    client: 'Original Character',
+    description: 'Mecha-infused ronin aesthetic featuring custom energy katana and intricate crest markings.',
+    tags: ['Ronin', 'Armor', 'Concept'],
+    aspect: 'square'
+  },
+  {
+    id: 'char-2024-06',
+    title: 'Mystic Enchanter',
+    category: 'character-design',
+    categoryLabel: 'Character Design',
+    image: '/Character design/export202406081957156640.jpeg',
+    featured: false,
+    year: '2024',
+    client: 'Tabletop RPG Campaign',
+    description: 'Intricately rendered sorcerer design with ethereal magical effects, custom robes, and glowing runes.',
+    tags: ['RPG', 'Sorcerer', 'Magic'],
+    aspect: 'tall'
+  },
+
+  // COMIC PAGES
+  {
+    id: 'comic-p1',
+    title: 'Chrono Rift — Page 14',
+    category: 'comic-pages',
+    categoryLabel: 'Comic Pages',
+    image: '/Comic pages/export202504241909546842.png',
+    featured: true,
+    year: '2025',
+    client: 'Sequential Serialization',
+    description: 'High-octane comic action spread featuring dynamic panel transitions, impact sound FX lettering, and intense kinetic speedlines.',
+    tags: ['Sequential Art', 'Action Manga', 'Panel Layout', 'Impact'],
+    aspect: 'tall'
+  },
+  {
+    id: 'comic-p2',
+    title: 'Echoes of War — Confrontation',
+    category: 'comic-pages',
+    categoryLabel: 'Comic Pages',
+    image: '/Comic pages/export202505110008498282.png',
+    featured: true,
+    year: '2025',
+    client: 'Webcomic Creator',
+    description: 'Dramatic close-up dialogues, cinematic establishing shots, and masterful black-and-white inking balance.',
+    tags: ['Manga Inks', 'Dramatic Storytelling', 'Cinematic Paneling'],
+    aspect: 'tall'
+  },
+  {
+    id: 'comic-p3',
+    title: 'Awakening The Beast',
+    category: 'comic-pages',
+    categoryLabel: 'Comic Pages',
+    image: '/Comic pages/export202504241748228213.png',
+    featured: false,
+    year: '2025',
+    client: 'Graphic Novel Project',
+    description: 'Transformation sequence showcasing expressive anatomical tension, screentone shading, and visual storytelling.',
+    tags: ['Transformation', 'Screentones', 'Sequential Art'],
+    aspect: 'tall'
+  },
+  {
+    id: 'comic-p4',
+    title: 'Neon Skirmish — Page 22',
+    category: 'comic-pages',
+    categoryLabel: 'Comic Pages',
+    image: '/Comic pages/export202504291651068289.png',
+    featured: false,
+    year: '2025',
+    client: 'Indie Comic Publisher',
+    description: 'Multi-tiered chase sequence through vertical alleyways with bold perspective and intricate background art.',
+    tags: ['Action', 'Perspective', 'Background Art'],
+    aspect: 'tall'
+  },
+  {
+    id: 'comic-img-3029',
+    title: 'The Final Strike',
+    category: 'comic-pages',
+    categoryLabel: 'Comic Pages',
+    image: '/Comic pages/IMG_3029.PNG',
+    featured: false,
+    year: '2025',
+    client: 'Original Comic Series',
+    description: 'Double page climactic battle climax with explosive energy bursts and expressive character emotions.',
+    tags: ['Climax', 'Double Spread', 'Ink Work'],
+    aspect: 'wide'
+  },
+
+  // ILLUSTRATIONS
+  {
+    id: 'ill-img-3164',
+    title: 'Crimson Valkyrie',
+    category: 'illustration',
+    categoryLabel: 'Illustrations',
+    image: '/Illustrations/IMG_3164.PNG',
+    featured: true,
+    year: '2026',
+    client: 'Art Prints Series',
+    description: 'Vibrant, masterfully painted character illustration loaded with intricate jewelry, stylized flowing fabric, and rich warm shadows.',
+    tags: ['Master Illustration', 'Valkyrie', 'Warm Lighting', 'High Detail'],
+    aspect: 'wide'
+  },
+  {
+    id: 'ill-2',
+    title: 'Reign of the Sovereign',
+    category: 'illustration',
+    categoryLabel: 'Illustrations',
+    image: '/Illustrations/Illustration2.png',
+    featured: true,
+    year: '2026',
+    client: 'Original IP Key Visual',
+    description: 'Panoramic grand fantasy illustration featuring immense scale, celestial atmospheric skies, and iconic character staging.',
+    tags: ['Key Visual', 'Fantasy Scale', 'Atmosphere'],
+    aspect: 'wide'
+  },
+  {
+    id: 'ill-avatar-collab',
+    title: 'Avatar Elements — Collab Piece',
+    category: 'illustration',
+    categoryLabel: 'Illustrations',
+    image: '/Illustrations/?? Avatar collab piece.jpg',
+    featured: false,
+    year: '2025',
+    client: 'Artist Tribute Collab',
+    description: 'Expressive tribute illustration rendering elemental martial movements, vivid aura trails, and stylized anime character art.',
+    tags: ['Tribute Art', 'Elemental FX', 'Anime Style'],
+    aspect: 'square'
+  },
+  {
+    id: 'ill-2025-10',
+    title: 'Moonlit Duelist',
+    category: 'illustration',
+    categoryLabel: 'Illustrations',
+    image: '/Illustrations/export202510240301061770.png',
+    featured: false,
+    year: '2025',
+    client: 'Personal Project',
+    description: 'Nocturnal sword duel bathed in ambient blue moonlight and reflective wet surfaces.',
+    tags: ['Nocturnal', 'Duel', 'Moody Lighting'],
+    aspect: 'tall'
+  },
+  {
+    id: 'ill-2026-02',
+    title: 'Cyber Lotus',
+    category: 'illustration',
+    categoryLabel: 'Illustrations',
+    image: '/Illustrations/export202602160902284710.png',
+    featured: false,
+    year: '2026',
+    client: 'Commercial Commission',
+    description: 'Futuristic character portrait with holographic flowers, custom fashion, and clean clean vector-smooth rendering.',
+    tags: ['Portrait', 'Futuristic', 'Fashion'],
+    aspect: 'tall'
+  },
+
+  // CONCEPT ARTS & STORY BOARDS
+  {
+    id: 'concept-2025-09',
+    title: 'Titan Ruins — Environment & Prop Concept',
+    category: 'concept-art',
+    categoryLabel: 'Concept Arts & Storyboards',
+    image: '/Concept arts and story boards/export202509231248120040.png',
+    featured: true,
+    year: '2025',
+    client: 'Worldbuilding Codex',
+    description: 'Environmental concept design depicting ancient mechanical colossi overgrown with jungle vegetation and scale reference figures.',
+    tags: ['Environment Design', 'Worldbuilding', 'Scale Studies'],
+    aspect: 'wide'
+  },
+  {
+    id: 'concept-storyboard-406',
+    title: 'Cinematic Storyboard Sequence — Beat A',
+    category: 'concept-art',
+    categoryLabel: 'Concept Arts & Storyboards',
+    image: '/Concept arts and story boards/export202604062207232060.png',
+    featured: false,
+    year: '2026',
+    client: 'Animated Short Pre-production',
+    description: 'Camera angle guides, focal direction arrows, and pacing frames created for 2D animated action scene direction.',
+    tags: ['Storyboard', 'Camera Staging', 'Animation Prep'],
+    aspect: 'wide'
+  },
+  {
+    id: 'concept-2025-02',
+    title: 'Artifact Key Item Design',
+    category: 'concept-art',
+    categoryLabel: 'Concept Arts & Storyboards',
+    image: '/Concept arts and story boards/export202502231658129266.png',
+    featured: false,
+    year: '2025',
+    client: 'Indie RPG Studio',
+    description: 'Detailed weapon prop iterations, functional mechanism breakdowns, and gem socket details.',
+    tags: ['Prop Design', 'Weapon Design', 'RPG Item'],
+    aspect: 'square'
+  },
+
+  // COVER ARTS
+  {
+    id: 'cover-snydercut',
+    title: 'Snyder Heroes — Tribute Cover',
+    category: 'cover-arts',
+    categoryLabel: 'Cover Arts',
+    image: '/Cover arts/snydercut colors copy (1).jpg',
+    featured: false,
+    year: '2025',
+    client: 'Comic Variant Cover',
+    description: 'Iconic heroic composition featuring mythological character archetypes, gritty textures, and dramatic god-ray lighting.',
+    tags: ['Variant Cover', 'Superhero', 'Dramatic Lighting'],
+    aspect: 'tall'
+  },
+  {
+    id: 'cover-2025-04',
+    title: 'Grimoire of Shadows — Book Wrap',
+    category: 'cover-arts',
+    categoryLabel: 'Cover Arts',
+    image: '/Cover arts/export202504271524339875.png',
+    featured: false,
+    year: '2025',
+    client: 'Dark Fantasy Novelist',
+    description: 'Full wrap-around book jacket art featuring protagonist spine illustration and ominous back cover landscape.',
+    tags: ['Book Jacket', 'Wrap-around Cover', 'Dark Fantasy'],
+    aspect: 'wide'
+  },
+  {
+    id: 'cover-2026-07',
+    title: 'Neon Odyssey — Volume 3',
+    category: 'cover-arts',
+    categoryLabel: 'Cover Arts',
+    image: '/Cover arts/export202607181828599932.png',
+    featured: false,
+    year: '2026',
+    client: 'Web Novel Serialization',
+    description: 'Vibrant vertical cover layout optimized for digital store thumbnails, webtoon platforms, and physical print.',
+    tags: ['Digital Cover', 'Thumbnails', 'Web Novel'],
+    aspect: 'tall'
+  },
+
+  // ANIMATION REELS
+  {
+    id: 'anim-reel-1',
+    title: 'Combat Impact Cut — 2D Sakuga',
+    category: 'animation',
+    categoryLabel: '2D Animation',
+    video: '/Animation/New Project 4 [64D7B43].mp4',
+    image: '/Illustrations/Zuko splash art.png',
+    featured: true,
+    year: '2026',
+    client: 'Original Sakuga Animation Reel',
+    description: 'Frame-by-frame sakuga action cut with smear frames, dynamic camera rotation, and fluid FX explosions.',
+    tags: ['Sakuga', 'Frame by Frame', 'Action Animation', '2D FX'],
+    aspect: 'wide',
+    isVideo: true
+  },
+  {
+    id: 'anim-reel-2',
+    title: 'Character Movement & Smear FX',
+    category: 'animation',
+    categoryLabel: '2D Animation',
+    video: '/Animation/New Project [D30C434].mp4',
+    image: '/Illustrations/Battle elf illustration.png',
+    featured: true,
+    year: '2026',
+    client: 'Animation Reel',
+    description: 'Full-body character athletic parkour run cycle, in-betweening, and fluid perspective physics.',
+    tags: ['Run Cycle', 'Character Motion', '2D Animation'],
+    aspect: 'wide',
+    isVideo: true
+  },
+  {
+    id: 'anim-reel-3',
+    title: 'Cinematic Camera Dolly Reel',
+    category: 'animation',
+    categoryLabel: '2D Animation',
+    video: '/Animation/lv_0_20260614194337.mp4',
+    image: '/Cover arts/META 6 REDO copy 1.jpg',
+    featured: false,
+    year: '2026',
+    client: 'Motion Design Project',
+    description: 'Parallax layer separation, cinematic lighting passes, and 2D motion graphics synchronization.',
+    tags: ['Parallax', 'Motion Graphics', '2D FX'],
+    aspect: 'wide',
+    isVideo: true
+  },
+  {
+    id: 'anim-reel-4',
+    title: 'Special FX & Energy Attack',
+    category: 'animation',
+    categoryLabel: '2D Animation',
+    video: '/Animation/Test1.mp4',
+    image: '/Illustrations/IMG_3164.PNG',
+    featured: false,
+    year: '2026',
+    client: 'FX Practice & Demo',
+    description: 'Elemental fire & lightning FX bursting through anime impact frames.',
+    tags: ['Energy Attack', 'Impact Frames', 'VFX'],
+    aspect: 'square',
+    isVideo: true
+  }
+];
+
+// 18+ VAULT ARTWORKS (Separated for optional age verification)
+export const NSFW_ARTWORKS = [
+  {
+    id: 'nsfw-1',
+    title: 'Cursed Romance',
+    category: 'nsfw',
+    categoryLabel: 'Vault (18+)',
+    image: '/Nsfw pages 18+/cursed color.jpg',
+    year: '2025',
+    description: 'Sensual full-color character composition with moody atmospheric lighting.',
+    tags: ['18+', 'Pin-up', 'Moody']
+  },
+  {
+    id: 'nsfw-2',
+    title: 'Midnight Sirens',
+    category: 'nsfw',
+    categoryLabel: 'Vault (18+)',
+    image: '/Nsfw pages 18+/export202409112112075940.png',
+    year: '2025',
+    description: 'Stylized character pinup illustration with high-contrast shadows and clean anatomy.',
+    tags: ['18+', 'Character Study', 'Pin-up']
+  },
+  {
+    id: 'nsfw-3',
+    title: 'Eclipse Passion',
+    category: 'nsfw',
+    categoryLabel: 'Vault (18+)',
+    image: '/Nsfw pages 18+/export202502151400039286.png',
+    year: '2025',
+    description: 'Expressive comic-style sequential panel artwork for adult readership.',
+    tags: ['18+', 'Sequential Art', 'Adult Fiction']
+  },
+  {
+    id: 'nsfw-4',
+    title: 'Crimson Velvet',
+    category: 'nsfw',
+    categoryLabel: 'Vault (18+)',
+    image: '/Nsfw pages 18+/export202408192317483570.png',
+    year: '2025',
+    description: 'Ornate fantasy boudoir illustration with intricate textures.',
+    tags: ['18+', 'Fantasy', 'Boudoir']
+  }
+];
+
+export const CATEGORIES = [
+  { id: 'all', label: 'All Works' },
+  { id: 'illustration', label: 'Illustrations' },
+  { id: 'character-design', label: 'Character Design' },
+  { id: 'comic-pages', label: 'Comic Pages' },
+  { id: 'cover-arts', label: 'Book & Cover Arts' },
+  { id: 'concept-art', label: 'Concept & Storyboards' },
+  { id: 'animation', label: '2D Animation & Motion' },
+  { id: 'nsfw', label: '18+ Vault', isRestricted: true }
+];
