@@ -156,36 +156,42 @@ export default function ContactView({ setActiveView }) {
               </div>
 
               <div>
-                <span className="text-xs font-mono text-neutral-500 uppercase block mb-1">Location</span>
-                <span className="text-neutral-300 font-mono">Nigeria 🇳🇬 (Working with global clients)</span>
+                <span className="text-xs font-mono text-neutral-500 uppercase block mb-1">Studio Availability</span>
+                <span className="text-neutral-300 font-mono">Worldwide (Global Remote Client Studio) 🌍</span>
               </div>
 
               <div>
-                <span className="text-xs font-mono text-neutral-500 uppercase block mb-1">Timezone</span>
-                <span className="text-neutral-300 font-mono">WAT (UTC+1)</span>
+                <span className="text-xs font-mono text-neutral-500 uppercase block mb-1">Response Time</span>
+                <span className="text-neutral-300 font-mono">Within 24–48 Hours</span>
               </div>
             </div>
           </div>
 
           <div className="bg-dark-900 border-2 border-dark-800 p-6 sm:p-8 space-y-4 shadow-2xl">
             <h3 className="text-lg font-bold text-white font-display uppercase tracking-wider border-b border-dark-800 pb-3">
-              Social Channels
+              Official Hub & Channels
             </h3>
             <p className="text-xs text-neutral-400">
-              Follow for daily sketches, work-in-progress reels, and art drop announcements.
+              Follow for official links, artwork releases, speedpaints, and animations.
             </p>
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono pt-2">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors">
-                Instagram ↗
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono pt-2">
+              <a 
+                href="https://linktr.ee/unrivaledart" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors flex items-center justify-between"
+              >
+                <span>Linktree Hub</span>
+                <span>↗</span>
               </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors">
-                X / Twitter ↗
-              </a>
-              <a href="https://tiktok.com" target="_blank" rel="noreferrer" className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors">
-                TikTok ↗
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors">
-                YouTube ↗
+              <a 
+                href="https://youtube.com/@chuksjoseph0?si=AvsnJPqBNOsSNM3L" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="p-3 bg-dark-950 border border-dark-700 hover:border-brand-accent text-neutral-300 hover:text-white transition-colors flex items-center justify-between"
+              >
+                <span>YouTube Channel</span>
+                <span>↗</span>
               </a>
             </div>
           </div>

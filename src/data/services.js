@@ -26,28 +26,28 @@ export const SERVICES = [
     ]
   },
   {
-    id: 'character-design',
-    title: 'Character Design & Model Sheets',
-    tagline: 'From initial sketch to turnarounds and expression charts for 3D animators, comics, and games.',
-    badge: 'Game & Comic Ready',
-    startingPrice: 220,
-    turnaround: '7–14 Business Days',
-    idealFor: 'Indie Game Developers, Comic Writers, Animation Studios, Brand Mascots',
+    id: 'music-covers',
+    title: 'Music Cover',
+    tagline: 'High-impact illustrated single and album covers crafted for Spotify, Apple Music, vinyl, and streaming platforms.',
+    badge: 'Single & Album Ready',
+    startingPrice: 200,
+    turnaround: '5–10 Business Days',
+    idealFor: 'Musicians, Producers, Bands, Record Labels, DJs',
     tiers: [
-      { name: 'Concept & Silhouette Sheet', price: '$220+', description: '3 Initial silhouette concepts + 1 fully rendered front view.' },
-      { name: 'Full 3-View Turnaround', price: '$350+', description: 'Front, Side, and Back views with orthographic accuracy.' },
-      { name: 'Master Production Bible', price: '$500+', description: 'Turnaround + 4 Expressions + Weapon/Prop callouts + Color palette hex codes.' }
+      { name: 'Single Front Cover', price: '$200+', description: 'Square 3000x3000px high-res cover art optimized for all major DSPs.' },
+      { name: 'Full Album & Vinyl Package', price: '$350+', description: 'Front, back tracklist layout, spine, and inner sleeve printable files.' },
+      { name: 'Motion Cover / Spotify Canvas Package', price: '$450+', description: 'Full album cover art + seamless 8-second animated Spotify Canvas loop.' }
     ],
     includes: [
-      'Layered PSD source file + high-res PNGs',
-      'Color palette breakdown & reference callouts',
-      'Orthographic proportions ready for 3D sculptors or 2D animators',
-      'Up to 4 revision stages'
+      '3000x3000px 300+ DPI master files (RGB + CMYK print specs)',
+      'Custom typography integration & title design',
+      'Full commercial streaming & distribution rights',
+      '3 Dedicated revision checkpoints'
     ],
     addons: [
-      { name: 'Extra Expression Sheet (4 faces)', price: '+$60' },
-      { name: 'Alternate Costume Variant', price: '+$90' },
-      { name: 'Companion Creature / Pet Design', price: '+$75' }
+      { name: 'Animated Spotify Canvas Loop', price: '+$90' },
+      { name: 'Social Media Promo Banner Kit', price: '+$50' },
+      { name: 'Vinyl Gatefold Layout', price: '+$100' }
     ]
   },
   {

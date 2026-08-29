@@ -186,11 +186,12 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                     <video
                       src="/Animation/New Project 4 [64D7B43].mp4"
+                      poster="/opt/Illustrations/Battle elf illustration.webp"
                       autoPlay
                       loop
                       muted
                       playsInline
-                      preload="metadata"
+                      preload="auto"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
                     />
                   </div>

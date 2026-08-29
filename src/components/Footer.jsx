@@ -72,7 +72,7 @@ export default function Footer({ setActiveView, onOpenShop }) {
               </div>
             </div>
             <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
-              Illustrator, character designer, comic artist, and 2D animator based in Nigeria. Transforming raw concepts into iconic characters and immersive visual stories.
+              Illustrator, character designer, comic artist, and 2D animator. Transforming raw concepts into iconic characters and immersive visual stories.
             </p>
             <div className="pt-2">
               <span className="font-mono text-xs text-neutral-500 block">
@@ -113,6 +113,11 @@ export default function Footer({ setActiveView, onOpenShop }) {
                 </button>
               </li>
               <li>
+                <button onClick={() => handleNav('privacy')} className="hover:text-brand-accent transition-colors">
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
                 <button onClick={onOpenShop} className="text-brand-amber hover:text-amber-300 transition-colors flex items-center gap-1">
                   <span>Merch & Prints</span>
                   <span className="text-[10px] bg-dark-800 px-1 py-0.2 border border-dark-700">SOON</span>
@@ -134,7 +139,7 @@ export default function Footer({ setActiveView, onOpenShop }) {
               </li>
               <li>
                 <button onClick={() => handleNav('services')} className="hover:text-brand-accent transition-colors">
-                  Character Design & Model Sheets
+                  Music & Album Covers
                 </button>
               </li>
               <li>
@@ -163,61 +168,28 @@ export default function Footer({ setActiveView, onOpenShop }) {
           {/* Social Channels */}
           <div className="space-y-3">
             <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-white border-b border-dark-800 pb-2">
-              Follow & Connect
+              Official Hub & Links
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a 
-                  href="https://instagram.com" 
+                  href="https://linktr.ee/unrivaledart" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="hover:text-brand-accent transition-colors flex items-center justify-between group"
                 >
-                  <span>Instagram</span>
+                  <span>Linktree Hub</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
               <li>
                 <a 
-                  href="https://x.com" 
+                  href="https://youtube.com/@chuksjoseph0?si=AvsnJPqBNOsSNM3L" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="hover:text-brand-accent transition-colors flex items-center justify-between group"
                 >
-                  <span>X (Twitter)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://tiktok.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="hover:text-brand-accent transition-colors flex items-center justify-between group"
-                >
-                  <span>TikTok</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://youtube.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="hover:text-brand-accent transition-colors flex items-center justify-between group"
-                >
-                  <span>YouTube</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://artstation.com" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="hover:text-brand-accent transition-colors flex items-center justify-between group"
-                >
-                  <span>ArtStation</span>
+                  <span>YouTube Channel</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </a>
               </li>
@@ -228,10 +200,15 @@ export default function Footer({ setActiveView, onOpenShop }) {
 
         {/* Bottom copyright line */}
         <div className="mt-12 pt-8 border-t border-dark-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
-          <p>© {currentYear} UNRIVALED ART. All rights reserved. Original artwork & characters.</p>
-          <div className="flex items-center gap-1 text-neutral-400">
-            <span>Crafted with passion for stories & characters</span>
-            <Heart className="w-3.5 h-3.5 text-brand-accent fill-brand-accent inline" />
+          <p>UNRIVALED ART. All rights reserved. Original artwork & characters.</p>
+          <div className="flex items-center gap-4 text-neutral-400">
+            <button onClick={() => handleNav('privacy')} className="hover:text-brand-accent transition-colors underline">
+              Privacy Policy
+            </button>
+            <div className="flex items-center gap-1">
+              <span>Crafted for stories & characters</span>
+              <Heart className="w-3.5 h-3.5 text-brand-accent fill-brand-accent inline" />
+            </div>
           </div>
         </div>
       </div>

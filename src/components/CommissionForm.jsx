@@ -54,10 +54,10 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
       if (formData.scopeTier === 'bust') base = 120;
       else if (formData.scopeTier === 'half-body') base = 180;
       else if (formData.scopeTier === 'full-body') base = 260;
-    } else if (formData.service === 'character-design') {
-      if (formData.scopeTier === 'concept') base = 220;
-      else if (formData.scopeTier === 'turnaround') base = 350;
-      else base = 500;
+    } else if (formData.service === 'music-covers' || formData.service === 'character-design') {
+      if (formData.scopeTier === 'single' || formData.scopeTier === 'concept') base = 200;
+      else if (formData.scopeTier === 'album' || formData.scopeTier === 'turnaround') base = 350;
+      else base = 450;
     } else if (formData.service === 'book-covers') {
       if (formData.scopeTier === 'ebook') base = 300;
       else if (formData.scopeTier === 'wrap') base = 450;
@@ -307,7 +307,7 @@ Project Details: ${submittedData.description}
                   className="w-full bg-dark-950 border-2 border-dark-700 focus:border-brand-accent p-3.5 text-white text-sm focus:outline-none transition-colors font-mono"
                 >
                   <option value="character-illustration">Character Illustration ($120+)</option>
-                  <option value="character-design">Character Design & Model Sheets ($220+)</option>
+                  <option value="music-covers">Music & Album Cover ($200+)</option>
                   <option value="book-covers">Book & Novel Cover ($300+)</option>
                   <option value="comic-art">Comic & Manga Sequential Art ($150+/pg)</option>
                   <option value="2d-animation">2D Sakuga Animation ($280+)</option>

@@ -11,6 +11,8 @@ import ServicesView from './views/ServicesView';
 import AboutView from './views/AboutView';
 import HireView from './views/HireView';
 import ContactView from './views/ContactView';
+import PrivacyView from './views/PrivacyView';
+import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 
 export default function App() {
   const [activeView, setActiveView] = useState('home');
@@ -33,10 +35,10 @@ export default function App() {
   const handleCommissionLikeThis = (artwork) => {
     setPreselectedArtworkForCommission(artwork);
     if (artwork.category === 'illustration') setSelectedService('character-illustration');
-    else if (artwork.category === 'character-design') setSelectedService('character-design');
     else if (artwork.category === 'cover-arts') setSelectedService('book-covers');
     else if (artwork.category === 'comic-pages') setSelectedService('comic-art');
     else if (artwork.category === 'animation') setSelectedService('2d-animation');
+    else setSelectedService('music-covers');
     
     setActiveView('hire');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -112,6 +114,12 @@ export default function App() {
             setActiveView={setActiveView}
           />
         )}
+
+        {activeView === 'privacy' && (
+          <PrivacyView 
+            setActiveView={setActiveView}
+          />
+        )}
       </main>
 
       {/* Footer */}
@@ -119,6 +127,9 @@ export default function App() {
         setActiveView={setActiveView} 
         onOpenShop={() => setIsShopModalOpen(true)} 
       />
+
+      {/* Floating Studio Logo WhatsApp Button */}
+      <FloatingWhatsAppButton />
 
       {/* Lightbox Modal */}
       <ArtworkModal

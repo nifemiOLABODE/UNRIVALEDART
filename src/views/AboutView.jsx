@@ -20,7 +20,7 @@ export default function AboutView({ setActiveView }) {
           </h1>
 
           <p className="text-lg sm:text-xl font-semibold text-neutral-300 font-display">
-            Freelance Illustrator, Character Artist, Comic Creator & 2D Animator based in Nigeria.
+            Freelance Illustrator, Character Artist, Comic Creator & 2D Animator.
           </p>
 
           <div className="space-y-4 text-sm sm:text-base text-neutral-400 leading-relaxed">
@@ -79,8 +79,8 @@ export default function AboutView({ setActiveView }) {
                 <span className="text-white font-bold">Characters & Sakuga</span>
               </div>
               <div className="bg-dark-950 p-3 border border-dark-800">
-                <span className="text-neutral-500 block text-[10px] uppercase">Origin</span>
-                <span className="text-white font-bold">Nigeria 🇳🇬</span>
+                <span className="text-neutral-500 block text-[10px] uppercase">Studio</span>
+                <span className="text-white font-bold">Worldwide 🌍</span>
               </div>
             </div>
           </div>
