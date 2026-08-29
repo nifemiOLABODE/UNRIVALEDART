@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Film, Play } from 'lucide-react';
+import { Film } from 'lucide-react';
 
 export default function LazyVideoCard({ art, className = '' }) {
   const [isInView, setIsInView] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const [hasError, setHasError] = useState(false);
   const containerRef = useRef(null);
   const videoRef = useRef(null);
@@ -17,21 +17,21 @@ export default function LazyVideoCard({ art, className = '' }) {
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
               playPromise
-                .then(() => setIsVideoPlaying(true))
+                .then(() => setIsVideoReady(true))
                 .catch(() => {
-                  // Autoplay policy prevented playback, keep poster active until tapped
+                  // Mobile autoplay blocked: poster image stays visible
                 });
             }
           }
         } else {
-          // Pause when far out of view to save battery & network bandwidth
+          // Pause when scrolling away to save bandwidth & GPU cycles
           if (videoRef.current) {
             videoRef.current.pause();
           }
         }
       },
       {
-        rootMargin: '400px 0px', // Buffer 400px ahead so stream is ready before in-view
+        rootMargin: '350px 0px',
         threshold: 0.05
       }
     );
@@ -46,9 +46,9 @@ export default function LazyVideoCard({ art, className = '' }) {
   }, []);
 
   const handleManualPlay = () => {
-    if (videoRef.current) {
+    if (videoRef.current && !hasError) {
       videoRef.current.play()
-        .then(() => setIsVideoPlaying(true))
+        .then(() => setIsVideoReady(true))
         .catch(() => {});
     }
   };
@@ -59,18 +59,16 @@ export default function LazyVideoCard({ art, className = '' }) {
       onClick={handleManualPlay}
       className={`relative w-full h-full bg-dark-950 overflow-hidden select-none ${className}`}
     >
-      {/* 1. Instant high-res WebP poster (displays in 0.001s, 0 blank frame) */}
+      {/* 1. Permanent High-Resolution WebP Artwork (Always visible, 0% chance of blank box) */}
       <img
         src={art.image}
         alt={art.title}
         loading="lazy"
         decoding="async"
-        className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-300 absolute inset-0 ${
-          isVideoPlaying ? 'opacity-0' : 'opacity-100'
-        }`}
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 absolute inset-0"
       />
 
-      {/* 2. Video element: handles mobile autoplay, webkit attributes, & error fallbacks */}
+      {/* 2. Video Overlay: Renders on top only after frames start streaming */}
       {isInView && !hasError && (
         <video
           ref={videoRef}
@@ -81,17 +79,16 @@ export default function LazyVideoCard({ art, className = '' }) {
           playsInline
           webkit-playsinline="true"
           preload="auto"
-          onLoadedData={() => setIsVideoPlaying(true)}
-          onCanPlay={() => {
-            if (videoRef.current) {
-              videoRef.current.play().catch(() => {});
-            }
+          onPlaying={() => setIsVideoReady(true)}
+          onTimeUpdate={() => {
+            if (!isVideoReady) setIsVideoReady(true);
           }}
-          onPlay={() => setIsVideoPlaying(true)}
-          onPlaying={() => setIsVideoPlaying(true)}
-          onError={() => setHasError(true)}
+          onError={() => {
+            setHasError(true);
+            setIsVideoReady(false);
+          }}
           className={`w-full h-full object-cover group-hover:scale-105 transition-opacity duration-300 pointer-events-none absolute inset-0 ${
-            isVideoPlaying ? 'opacity-100' : 'opacity-0'
+            isVideoReady ? 'opacity-100' : 'opacity-0'
           }`}
         />
       )}

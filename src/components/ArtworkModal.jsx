@@ -25,10 +25,13 @@ export default function ArtworkModal({ artwork, onClose, onCommissionLikeThis })
           {artwork.isVideo ? (
             <video
               src={artwork.video}
+              poster={artwork.image}
               controls
               autoPlay
               loop
               playsInline
+              webkit-playsinline="true"
+              preload="auto"
               className="max-h-full max-w-full object-contain border border-dark-700"
             />
           ) : (
