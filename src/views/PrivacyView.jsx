@@ -90,10 +90,10 @@ export default function PrivacyView({ setActiveView }) {
           </p>
           <div className="pt-2">
             <a
-              href="mailto:unrivaledart@gmail.com"
+              href="mailto:Chuksjosh5@gmail.com"
               className="text-brand-accent font-bold font-mono text-base hover:underline"
             >
-              unrivaledart@gmail.com
+              Chuksjosh5@gmail.com
             </a>
           </div>
         </section>

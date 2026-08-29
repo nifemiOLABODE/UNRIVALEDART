@@ -150,8 +150,8 @@ export default function ContactView({ setActiveView }) {
             <div className="space-y-4 text-sm">
               <div>
                 <span className="text-xs font-mono text-neutral-500 uppercase block mb-1">Email</span>
-                <a href="mailto:unrivaledart@gmail.com" className="text-brand-accent font-bold hover:underline font-mono text-base">
-                  unrivaledart@gmail.com
+                <a href="mailto:Chuksjosh5@gmail.com" className="text-brand-accent font-bold hover:underline font-mono text-base">
+                  Chuksjosh5@gmail.com
                 </a>
               </div>
 

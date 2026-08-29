@@ -76,7 +76,7 @@ export default function Footer({ setActiveView, onOpenShop }) {
             </p>
             <div className="pt-2">
               <span className="font-mono text-xs text-neutral-500 block">
-                Direct Contact: <a href="mailto:unrivaledart@gmail.com" className="text-brand-accent hover:underline font-semibold">unrivaledart@gmail.com</a>
+                Direct Contact: <a href="mailto:Chuksjosh5@gmail.com" className="text-brand-accent hover:underline font-semibold">Chuksjosh5@gmail.com</a>
               </span>
             </div>
           </div>
