@@ -8,6 +8,7 @@ import { FAQS } from '../data/faqs';
 export default function HomeView({ setActiveView, onSelectArtwork, onSelectService }) {
   const [openFaq, setOpenFaq] = useState(null);
   const [activeWordIdx, setActiveWordIdx] = useState(0);
+  const [heroVideoReady, setHeroVideoReady] = useState(false);
 
   // Single colorful animated underline that switches between words repeatedly
   useEffect(() => {
@@ -191,7 +192,8 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                       muted
                       playsInline
                       preload="auto"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                      onCanPlay={() => setHeroVideoReady(true)}
+                      className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 pointer-events-none ${heroVideoReady ? 'opacity-100' : 'opacity-0'}`}
                     />
                   </div>
                 </div>
@@ -199,7 +201,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 {/* Floating Supporting Artwork Thumbnail (Battle Elf - Pure Image Without Caption) */}
                 <div 
                   onClick={() => onSelectArtwork(battleElfArt)}
-                  className="hidden sm:block absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-300 p-1.5 group overflow-hidden"
+                  className={`absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-500 p-1.5 group overflow-hidden ${heroVideoReady ? 'sm:block opacity-100 translate-y-0' : 'hidden opacity-0 translate-y-4'}`}
                 >
                   <div className="w-full h-full bg-dark-950 overflow-hidden">
                     <img
