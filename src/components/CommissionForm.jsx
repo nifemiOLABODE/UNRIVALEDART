@@ -99,14 +99,44 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.antiSpam && formData.antiSpam.trim() !== '') {
       // Honeypot hit
       return;
     }
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    const payload = {
+      _subject: `New Commission Inquiry: ${formData.service} from ${formData.name}`,
+      clientName: formData.name,
+      clientEmail: formData.email,
+      socialHandle: formData.socialHandle || 'N/A',
+      serviceType: formData.service,
+      scopeTier: formData.scopeTier,
+      characterCount: formData.characterCount,
+      stylePreference: formData.stylePreference,
+      intendedUse: formData.intendedUse,
+      backgroundDetail: formData.backgroundDetail,
+      deadline: formData.deadline,
+      estimatedPriceUSD: `$${currentEstimate} USD`,
+      referenceLinks: formData.referenceLinks || 'None provided',
+      projectDescription: formData.description,
+      addons: Object.keys(formData.selectedAddons).filter(k => formData.selectedAddons[k]).join(', ') || 'None'
+    };
+
+    try {
+      await fetch('https://formspree.io/f/xkjngbyo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.error('Formspree dispatch error:', err);
+    } finally {
       setIsSubmitting(false);
       setSubmittedData({
         ...formData,
@@ -114,7 +144,7 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
         submittedAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
       });
       window.scrollTo({ top: 300, behavior: 'smooth' });
-    }, 1000);
+    }
   };
 
   const copyBriefToClipboard = () => {

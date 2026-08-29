@@ -5,11 +5,32 @@ export default function ShopModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    setIsSubmitting(true);
+
+    try {
+      await fetch('https://formspree.io/f/xkjngbyo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Merch & Print VIP Waitlist Signup: ${email}`,
+          vipEmail: email,
+          source: 'Shop Modal Waitlist'
+        })
+      });
+    } catch (err) {
+      console.error('Shop waitlist dispatch error:', err);
+    } finally {
+      setIsSubmitting(false);
       setSubmitted(true);
     }
   };

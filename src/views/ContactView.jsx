@@ -9,10 +9,35 @@ export default function ContactView({ setActiveView }) {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    const payload = {
+      _subject: `General Inquiry: ${formData.subject || 'New Contact Message'} from ${formData.name}`,
+      senderName: formData.name,
+      senderEmail: formData.email,
+      inquirySubject: formData.subject,
+      inquiryMessage: formData.message
+    };
+
+    try {
+      await fetch('https://formspree.io/f/xkjngbyo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -131,10 +156,11 @@ export default function ContactView({ setActiveView }) {
 
               <button
                 type="submit"
-                className="w-full btn-primary py-4 text-xs font-mono font-bold tracking-widest flex items-center justify-center gap-2"
+                disabled={isSubmitting}
+                className="w-full btn-primary py-4 text-xs font-mono font-bold tracking-widest flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <Send className="w-4 h-4" />
-                <span>SEND DIRECT MESSAGE</span>
+                <Send className={`w-4 h-4 ${isSubmitting ? 'animate-spin' : ''}`} />
+                <span>{isSubmitting ? 'SENDING MESSAGE...' : 'SEND DIRECT MESSAGE'}</span>
               </button>
             </form>
           )}
