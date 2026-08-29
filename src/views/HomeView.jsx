@@ -201,7 +201,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 {/* Floating Supporting Artwork Thumbnail (Battle Elf - Pure Image Without Caption) */}
                 <div 
                   onClick={() => onSelectArtwork(battleElfArt)}
-                  className={`absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-500 p-1.5 group overflow-hidden ${heroVideoReady ? 'sm:block opacity-100 translate-y-0' : 'hidden opacity-0 translate-y-4'}`}
+                  className={`hidden absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-500 p-1.5 group overflow-hidden ${heroVideoReady ? 'sm:block' : ''}`}
                 >
                   <div className="w-full h-full bg-dark-950 overflow-hidden">
                     <img
