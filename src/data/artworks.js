@@ -2093,48 +2093,6 @@ export const ARTWORKS = [
     isVideo: true
   },
   {
-    id: 'anim-reel-7',
-    title: 'Character Animation Test — A',
-    category: 'animation',
-    categoryLabel: '2D Animation',
-    video: '/Animation/Untitled6.mp4',
-    image: '/opt/Illustrations/IMG_3166.webp',
-    featured: false,
-    year: '2026',
-    description: 'Character animation test exploring weight, timing, and fluid body mechanics.',
-    tags: ['Animation Test', 'Body Mechanics', 'Weight'],
-    aspect: 'wide',
-    isVideo: true
-  },
-  {
-    id: 'anim-reel-8',
-    title: 'Restored Animation — Combat Flow',
-    category: 'animation',
-    categoryLabel: '2D Animation',
-    video: '/Animation/Untitled7_Restored2.mp4',
-    image: '/opt/Illustrations/Illustration2.webp',
-    featured: false,
-    year: '2026',
-    description: 'Restored and refined combat animation with improved in-betweening and impact timing.',
-    tags: ['Combat', 'Restored', 'In-betweening'],
-    aspect: 'wide',
-    isVideo: true
-  },
-  {
-    id: 'anim-reel-9',
-    title: 'FX Experiment — Particle Burst',
-    category: 'animation',
-    categoryLabel: '2D Animation',
-    video: '/Animation/Untitled8.mp4',
-    image: '/opt/Cover arts/ninja cover copy1.webp',
-    featured: false,
-    year: '2026',
-    description: 'Experimental particle burst animation with layered FX and dynamic scaling effects.',
-    tags: ['Particle', 'FX Experiment', 'Burst'],
-    aspect: 'wide',
-    isVideo: true
-  },
-  {
     id: 'anim-reel-10',
     title: 'Early Motion Study',
     category: 'animation',

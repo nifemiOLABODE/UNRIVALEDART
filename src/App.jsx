@@ -31,9 +31,6 @@ export default function App() {
         '/Animation/lv_0_20260614194337.mp4',
         '/Animation/Test1.mp4',
         '/Animation/New_Project_1.mp4',
-        '/Animation/Untitled6.mp4',
-        '/Animation/Untitled7_Restored2.mp4',
-        '/Animation/Untitled8.mp4',
         '/Animation/lv_0_20251130045857.mp4',
         '/Animation/lv_0_20260607210309.mp4'
       ];
