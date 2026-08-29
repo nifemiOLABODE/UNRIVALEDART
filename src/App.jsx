@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ArtworkModal from './components/ArtworkModal';
@@ -20,6 +20,43 @@ export default function App() {
   const [selectedService, setSelectedService] = useState(null);
   const [preselectedArtworkForCommission, setPreselectedArtworkForCommission] = useState(null);
   const [portfolioCategory, setPortfolioCategory] = useState('all');
+
+  // Background idle prefetching for 2D Animation video assets
+  useEffect(() => {
+    const prefetchAnimationMedia = () => {
+      const animationVideos = [
+        '/Animation/New Project 4 [64D7B43].mp4',
+        '/Animation/InShot_20260323_224612253.mp4',
+        '/Animation/New Project [D30C434].mp4',
+        '/Animation/lv_0_20260614194337.mp4',
+        '/Animation/Test1.mp4',
+        '/Animation/New Project 1 [DBD0A9F].mp4',
+        '/Animation/Untitled6 (1).mp4',
+        '/Animation/Untitled7_Restored2 (1).mp4',
+        '/Animation/Untitled8 (1).mp4',
+        '/Animation/lv_0_20251130045857.mp4',
+        '/Animation/lv_0_20260607210309.mp4'
+      ];
+
+      animationVideos.forEach((videoPath, index) => {
+        setTimeout(() => {
+          try {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.as = 'video';
+            link.href = videoPath;
+            document.head.appendChild(link);
+          } catch (e) {}
+        }, index * 200);
+      });
+    };
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(prefetchAnimationMedia, { timeout: 2500 });
+    } else {
+      setTimeout(prefetchAnimationMedia, 1200);
+    }
+  }, []);
   
   const [isShopModalOpen, setIsShopModalOpen] = useState(false);
   const [isAgeGateOpen, setIsAgeGateOpen] = useState(false);

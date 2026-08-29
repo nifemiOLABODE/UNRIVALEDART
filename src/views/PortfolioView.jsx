@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Film, Lock, Eye, ShieldCheck, ChevronDown, Check } from 'lucide-react';
 import { ARTWORKS, NSFW_ARTWORKS, CATEGORIES } from '../data/artworks';
+import LazyVideoCard from '../components/LazyVideoCard';
 
 const BATCH_SIZE = 12;
 
@@ -152,16 +153,7 @@ export default function PortfolioView({
               {/* Image/Video Thumbnail Container */}
               <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                 {art.isVideo ? (
-                  <video
-                    src={art.video}
-                    poster={art.image}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 pointer-events-none"
-                  />
+                  <LazyVideoCard art={art} />
                 ) : (
                   <img
                     src={art.image}
