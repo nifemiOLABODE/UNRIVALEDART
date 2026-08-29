@@ -107,22 +107,35 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
     }
     setIsSubmitting(true);
 
+    const briefText = `
+=== UNRIVALED ART COMMISSION BRIEF ===
+Client Name: ${formData.name}
+Client Email: ${formData.email}
+Social Handle: ${formData.socialHandle || 'None'}
+Service: ${formData.service}
+Scope: ${formData.scopeTier}
+Characters: ${formData.characterCount}
+Style: ${formData.stylePreference}
+Usage: ${formData.intendedUse}
+Background: ${formData.backgroundDetail}
+Deadline: ${formData.deadline}
+Estimated Range: ~$${currentEstimate} USD
+References: ${formData.referenceLinks || 'None provided'}
+
+Project Vision & Details:
+${formData.description}
+======================================`;
+
     const payload = {
-      _subject: `New Commission Inquiry: ${formData.service} from ${formData.name}`,
-      clientName: formData.name,
-      clientEmail: formData.email,
-      socialHandle: formData.socialHandle || 'N/A',
-      serviceType: formData.service,
+      _subject: `🎨 Commission Request: ${formData.service} from ${formData.name}`,
+      name: formData.name,
+      email: formData.email,
+      _replyto: formData.email,
+      message: briefText,
+      service: formData.service,
       scopeTier: formData.scopeTier,
-      characterCount: formData.characterCount,
-      stylePreference: formData.stylePreference,
-      intendedUse: formData.intendedUse,
-      backgroundDetail: formData.backgroundDetail,
-      deadline: formData.deadline,
       estimatedPriceUSD: `$${currentEstimate} USD`,
-      referenceLinks: formData.referenceLinks || 'None provided',
-      projectDescription: formData.description,
-      addons: Object.keys(formData.selectedAddons).filter(k => formData.selectedAddons[k]).join(', ') || 'None'
+      deadline: formData.deadline
     };
 
     let emailSent = false;
@@ -137,8 +150,6 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
       });
       if (res.ok) {
         emailSent = true;
-      } else {
-        console.error('Formspree response error:', res.status);
       }
     } catch (err) {
       console.error('Formspree dispatch error:', err);
@@ -178,82 +189,47 @@ Project Details: ${submittedData.description}
 
   if (submittedData) {
     return (
-      <div className="bg-dark-900 border-2 border-brand-accent p-8 sm:p-12 shadow-2xl text-left space-y-8 max-w-4xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-dark-800 pb-6">
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 bg-emerald-500/10 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center flex-shrink-0">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <div>
-              <span className="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">
-                Commission Inquiry Received
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display">
-                THANK YOU, {submittedData.name.toUpperCase()}!
-              </h3>
-            </div>
-          </div>
-
-          <div className="bg-dark-950 border border-dark-700 px-4 py-2 text-right">
-            <div className="text-[10px] font-mono text-neutral-400 uppercase">Estimated Ballpark</div>
-            <div className="text-2xl font-mono font-bold text-brand-accent">~${submittedData.estimatedPrice} USD</div>
-          </div>
+      <div className="bg-dark-900 border-2 border-brand-accent p-8 sm:p-12 shadow-2xl text-center space-y-8 max-w-2xl mx-auto my-8">
+        <div className="w-20 h-20 bg-emerald-500/10 border-2 border-emerald-500 text-emerald-400 flex items-center justify-center mx-auto rounded-full shadow-lg animate-pulse">
+          <CheckCircle2 className="w-10 h-10" />
         </div>
 
-        <div className="space-y-4">
-          {submittedData.emailSent ? (
-            <div className="bg-emerald-950/30 border border-emerald-500/40 p-4 flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
-              <p className="text-emerald-300 text-sm leading-relaxed">
-                <strong>Email sent successfully!</strong> Your full commission brief has been delivered to UNRIVALED ART's inbox. You will receive a direct reply at <span className="text-brand-cyber font-mono">{submittedData.email}</span> within <strong>24–48 hours</strong> with a confirmed timeline and milestone invoice.
-              </p>
-            </div>
-          ) : (
-            <div className="bg-amber-950/30 border border-amber-500/40 p-4 flex items-start gap-3">
-              <RefreshCw className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-              <p className="text-amber-300 text-sm leading-relaxed">
-                <strong>Brief saved but email delivery may have failed.</strong> Please copy the brief below and send it directly to <a href="mailto:Chuksjosh5@gmail.com" className="text-brand-accent underline font-mono">Chuksjosh5@gmail.com</a>, or try submitting again.
-              </p>
-            </div>
-          )}
-
-          <div className="bg-dark-950 border-2 border-dark-800 p-6 space-y-4 font-mono text-xs text-neutral-300">
-            <div className="text-white font-bold uppercase tracking-widest border-b border-dark-800 pb-2 flex items-center justify-between">
-              <span>Commission Summary Brief</span>
-              <span className="text-neutral-500">{submittedData.submittedAt}</span>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div><strong className="text-neutral-400">Service:</strong> {submittedData.service}</div>
-              <div><strong className="text-neutral-400">Scope:</strong> {submittedData.scopeTier}</div>
-              <div><strong className="text-neutral-400">Characters:</strong> {submittedData.characterCount}</div>
-              <div><strong className="text-neutral-400">Usage Rights:</strong> {submittedData.intendedUse}</div>
-              <div><strong className="text-neutral-400">Deadline:</strong> {submittedData.deadline}</div>
-              <div><strong className="text-neutral-400">Style:</strong> {submittedData.stylePreference}</div>
-            </div>
-            {submittedData.description && (
-              <div className="pt-2 border-t border-dark-800">
-                <strong className="text-neutral-400 block mb-1">Project Vision:</strong>
-                <p className="text-neutral-300 whitespace-pre-line font-sans">{submittedData.description}</p>
-              </div>
-            )}
-          </div>
+        <div className="space-y-3">
+          <span className="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase bg-emerald-950/60 px-3 py-1 border border-emerald-500/30 inline-block">
+            Request Sent Successfully
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display">
+            THANK YOU, {submittedData.name.toUpperCase()}!
+          </h2>
+          <p className="text-neutral-300 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+            Your commission brief has been submitted directly to <strong>UNRIVALED ART</strong>. You will receive a direct reply at <span className="text-brand-cyber font-mono font-semibold">{submittedData.email}</span> within <strong>24–48 hours</strong> with timeline confirmation and next steps.
+          </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-dark-800">
-          <button
-            onClick={copyBriefToClipboard}
-            className="btn-secondary flex-1 py-4 flex items-center justify-center gap-2 font-mono text-xs"
-          >
-            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-white" />}
-            <span>{copied ? 'BRIEF COPIED TO CLIPBOARD' : 'COPY BRIEF FOR YOUR RECORDS'}</span>
-          </button>
-          
+        <div className="bg-dark-950 border border-dark-800 p-5 text-left space-y-2 font-mono text-xs text-neutral-400">
+          <div className="flex justify-between border-b border-dark-800 pb-2 text-white font-bold">
+            <span>Service: {submittedData.service}</span>
+            <span className="text-brand-accent">~${submittedData.estimatedPrice} USD</span>
+          </div>
+          <div>Scope: {submittedData.scopeTier}</div>
+          <div>Timeline: {submittedData.deadline}</div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-3 pt-4 justify-center">
           <button
             onClick={() => setSubmittedData(null)}
-            className="btn-outline px-6 py-4 flex items-center justify-center gap-2 font-mono text-xs"
+            className="btn-primary py-3.5 px-6 text-xs font-mono font-bold tracking-wider flex items-center justify-center gap-2"
           >
             <RefreshCw className="w-4 h-4" />
-            <span>SUBMIT ANOTHER INQUIRY</span>
+            <span>SUBMIT ANOTHER REQUEST</span>
+          </button>
+
+          <button
+            onClick={copyBriefToClipboard}
+            className="btn-outline py-3.5 px-6 text-xs font-mono tracking-wider flex items-center justify-center gap-2"
+          >
+            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-white" />}
+            <span>{copied ? 'COPIED TO CLIPBOARD' : 'COPY BRIEF DETAILS'}</span>
           </button>
         </div>
       </div>
