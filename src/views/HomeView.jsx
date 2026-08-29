@@ -36,18 +36,15 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
     <div className="relative overflow-hidden space-y-20 sm:space-y-28 pb-20">
       
       {/* ═══════════════════════════════════════════════════════════
-          DYNAMIC SAKUGA / LASER GRID BACKGROUND
+          ARTISTIC CANVAS BACKGROUND & RISING COLORED SPARK DOTS
           ═══════════════════════════════════════════════════════════ */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Moving Laser Grid */}
-        <div className="absolute inset-0 sakuga-grid-bg opacity-45" />
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden artistic-canvas-bg">
+        {/* Ambient Watercolor Glow Blurs */}
+        <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-brand-accent/10 rounded-full blur-[160px]" />
+        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-brand-cyber/10 rounded-full blur-[160px]" />
+        <div className="absolute bottom-40 left-10 w-[550px] h-[550px] bg-brand-amber/10 rounded-full blur-[170px]" />
 
-        {/* Ambient Glow Orbs */}
-        <div className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-brand-accent/15 rounded-full blur-[150px]" />
-        <div className="absolute top-1/2 right-10 w-[500px] h-[500px] bg-brand-cyber/15 rounded-full blur-[150px]" />
-        <div className="absolute bottom-40 left-10 w-[550px] h-[550px] bg-brand-amber/10 rounded-full blur-[160px]" />
-
-        {/* Rising Sakuga Embers / Spark Particles */}
+        {/* Rising Sakuga Embers / Spark Particles (Animated Colored Dots) */}
         {sparks.map((spark, idx) => (
           <span
             key={idx}
@@ -73,21 +70,24 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             {/* Hero Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               
-              {/* Badge with auto-pulse */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-dark-900 border-2 border-dark-700 shadow-solid-sm hover:border-brand-accent transition-colors">
-                <span className="w-2 h-2 rounded-full bg-brand-accent animate-ping" />
-                <span className="font-mono text-xs font-bold uppercase tracking-widest text-neutral-300">
+              {/* Top Roles Line (Clean, No Box/Border, with Spinning Red Diamond) */}
+              <div className="inline-flex items-center gap-2.5 py-1">
+                <span className="text-brand-accent text-sm animate-spin-slow">◆</span>
+                <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-neutral-300">
                   Illustrator • Character Artist • Comic Artist • Animator
                 </span>
               </div>
 
               {/* Main Brand Title */}
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display text-white leading-[1.05]">
                   UNRIVALED <span className="text-brand-accent">ART</span>
                 </h1>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-300 font-display tracking-tight leading-snug">
-                  I turn ideas into <span className="text-white border-b-2 border-brand-accent">characters</span>, <span className="text-brand-cyber">stories</span> & <span className="text-brand-amber">worlds</span>.
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-200 font-display tracking-tight leading-snug">
+                  I turn ideas into{' '}
+                  <span className="animated-word-line animated-line-1 text-white font-extrabold">characters</span>,{' '}
+                  <span className="animated-word-line animated-line-2 text-white font-extrabold">stories</span> &{' '}
+                  <span className="animated-word-line animated-line-3 text-white font-extrabold">worlds</span>.
                 </p>
               </div>
 

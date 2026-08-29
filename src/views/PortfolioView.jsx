@@ -154,6 +154,7 @@ export default function PortfolioView({
                 {art.isVideo ? (
                   <video
                     src={art.video}
+                    poster={art.image}
                     autoPlay
                     loop
                     muted

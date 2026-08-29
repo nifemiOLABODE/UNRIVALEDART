@@ -59,7 +59,7 @@ export default function AboutView({ setActiveView }) {
           <div className="bg-dark-900 border-2 border-brand-accent p-4 shadow-solid-lg space-y-4">
             <div className="aspect-[4/5] bg-dark-950 overflow-hidden border border-dark-800 relative">
               <video
-                src="/Animation/New Project 1 [DBD0A9F].mp4"
+                src="/Animation/InShot_20260323_224612253.mp4"
                 autoPlay
                 loop
                 muted

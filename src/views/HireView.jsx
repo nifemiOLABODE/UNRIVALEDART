@@ -9,12 +9,9 @@ export default function HireView({ preselectedService, preselectedArtwork }) {
       {/* Header Banner */}
       <div className="text-left space-y-4 border-b-2 border-dark-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-950/80 border border-emerald-500/50 text-emerald-400 font-mono text-xs font-bold uppercase tracking-widest">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span>COMMISSIONS CURRENTLY OPEN</span>
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-dark-900 border-2 border-brand-accent text-white font-mono text-xs font-bold uppercase tracking-widest shadow-[0_0_15px_rgba(255,51,102,0.25)]">
+            <span className="text-brand-accent text-xs animate-spin-slow">◆</span>
+            <span className="tracking-[0.15em] text-neutral-100">COMMISSIONS CURRENTLY OPEN</span>
           </div>
           <span className="text-xs font-mono text-neutral-400">
             • Q1/Q2 Project Slots Available
