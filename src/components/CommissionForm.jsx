@@ -125,8 +125,9 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
       addons: Object.keys(formData.selectedAddons).filter(k => formData.selectedAddons[k]).join(', ') || 'None'
     };
 
+    let emailSent = false;
     try {
-      await fetch('https://formspree.io/f/xkjngbyo', {
+      const res = await fetch('https://formspree.io/f/xkjngbyo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -134,6 +135,11 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
         },
         body: JSON.stringify(payload)
       });
+      if (res.ok) {
+        emailSent = true;
+      } else {
+        console.error('Formspree response error:', res.status);
+      }
     } catch (err) {
       console.error('Formspree dispatch error:', err);
     } finally {
@@ -141,6 +147,7 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
       setSubmittedData({
         ...formData,
         estimatedPrice: currentEstimate,
+        emailSent,
         submittedAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
       });
       window.scrollTo({ top: 300, behavior: 'smooth' });
@@ -194,9 +201,21 @@ Project Details: ${submittedData.description}
         </div>
 
         <div className="space-y-4">
-          <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
-            Your project brief has been registered with <strong>UNRIVALED ART</strong>. You will receive a direct reply at <span className="text-brand-cyber font-mono">{submittedData.email}</span> within <strong>24–48 hours</strong> with a confirmed timeline and milestone invoice.
-          </p>
+          {submittedData.emailSent ? (
+            <div className="bg-emerald-950/30 border border-emerald-500/40 p-4 flex items-start gap-3">
+              <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+              <p className="text-emerald-300 text-sm leading-relaxed">
+                <strong>Email sent successfully!</strong> Your full commission brief has been delivered to UNRIVALED ART's inbox. You will receive a direct reply at <span className="text-brand-cyber font-mono">{submittedData.email}</span> within <strong>24–48 hours</strong> with a confirmed timeline and milestone invoice.
+              </p>
+            </div>
+          ) : (
+            <div className="bg-amber-950/30 border border-amber-500/40 p-4 flex items-start gap-3">
+              <RefreshCw className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+              <p className="text-amber-300 text-sm leading-relaxed">
+                <strong>Brief saved but email delivery may have failed.</strong> Please copy the brief below and send it directly to <a href="mailto:Chuksjosh5@gmail.com" className="text-brand-accent underline font-mono">Chuksjosh5@gmail.com</a>, or try submitting again.
+              </p>
+            </div>
+          )}
 
           <div className="bg-dark-950 border-2 border-dark-800 p-6 space-y-4 font-mono text-xs text-neutral-300">
             <div className="text-white font-bold uppercase tracking-widest border-b border-dark-800 pb-2 flex items-center justify-between">
