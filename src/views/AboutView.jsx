@@ -64,7 +64,7 @@ export default function AboutView({ setActiveView }) {
                 loop
                 muted
                 playsInline
-                preload="metadata"
+                preload="auto"
                 className="w-full h-full object-cover filter contrast-105 pointer-events-none"
               />
               <div className="absolute bottom-3 left-3 right-3 bg-dark-950/90 border border-dark-700 p-3 text-left">
