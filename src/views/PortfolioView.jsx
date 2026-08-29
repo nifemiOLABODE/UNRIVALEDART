@@ -148,7 +148,9 @@ export default function PortfolioView({
             <div
               key={art.id}
               onClick={() => onSelectArtwork(art)}
-              className="group bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-200 cursor-pointer shadow-solid overflow-hidden flex flex-col justify-between"
+              className={`${
+                art.desktopOnly ? 'hidden sm:flex' : 'flex'
+              } group bg-dark-900 border-2 border-dark-800 hover:border-brand-accent transition-all duration-200 cursor-pointer shadow-solid overflow-hidden flex-col justify-between`}
             >
               {/* Image/Video Thumbnail Container */}
               <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
