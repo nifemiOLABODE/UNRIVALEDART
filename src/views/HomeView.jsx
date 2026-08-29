@@ -186,7 +186,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
                     <video
-                      src="/Animation/New Project 4 [64D7B43].mp4"
+                      src="/Animation/New_Project_4.mp4"
                       autoPlay
                       loop
                       muted
