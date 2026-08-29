@@ -200,15 +200,6 @@
   }
 }
 
-@keyframes buttonShimmerSweep {
-  0% {
-    transform: translateX(-100%) skewX(-20deg);
-  }
-  30%, 100% {
-    transform: translateX(200%) skewX(-20deg);
-  }
-}
-
 .auto-pulse-card-1 {
   animation: cardPulseGlowPink 6s ease-in-out infinite;
 }
@@ -219,17 +210,6 @@
 
 .auto-pulse-card-3 {
   animation: cardPulseGlowAmber 6s ease-in-out infinite 4s;
-}
-
-.auto-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
-  animation: buttonShimmerSweep 4s ease-in-out infinite;
 }
 
 /* Interactive navlink underline slide */

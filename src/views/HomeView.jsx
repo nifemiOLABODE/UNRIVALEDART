@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sparkles, ArrowRight, Palette, Layers, Star, HelpCircle, ChevronRight, ChevronDown, ChevronUp, CheckCircle2, MessageSquare, Clock, ShieldCheck } from 'lucide-react';
 import { ARTWORKS } from '../data/artworks';
 import { SERVICES, COMMISSION_STEPS } from '../data/services';
@@ -7,6 +7,15 @@ import { FAQS } from '../data/faqs';
 
 export default function HomeView({ setActiveView, onSelectArtwork, onSelectService }) {
   const [openFaq, setOpenFaq] = useState(null);
+  const [activeWordIdx, setActiveWordIdx] = useState(0);
+
+  // Single colorful animated underline that switches between words repeatedly
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveWordIdx((prev) => (prev + 1) % 3);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
 
   const toggleFaq = (idx) => {
     setOpenFaq(openFaq === idx ? null : idx);
@@ -21,7 +30,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
   const comicArt = ARTWORKS.find(a => a.category === 'comic-pages') || ARTWORKS[3];
   const coverArt = ARTWORKS.find(a => a.category === 'cover-arts') || ARTWORKS[4];
 
-  // Dynamic ember particles for background animation
+  // Dynamic ember particles for background animation (colored dots)
   const sparks = [
     { left: '8%', size: '3px', duration: '9s', delay: '0s', color: '#FF3366' },
     { left: '22%', size: '4px', duration: '12s', delay: '2s', color: '#00F0FF' },
@@ -83,11 +92,37 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display text-white leading-[1.05]">
                   UNRIVALED <span className="text-brand-accent">ART</span>
                 </h1>
-                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-200 font-display tracking-tight leading-snug">
+                
+                {/* Single Animated Moving Color Underline Switching between Words */}
+                <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-300 font-display tracking-tight leading-snug">
                   I turn ideas into{' '}
-                  <span className="animated-word-line animated-line-1 text-white font-extrabold">characters</span>,{' '}
-                  <span className="animated-word-line animated-line-2 text-white font-extrabold">stories</span> &{' '}
-                  <span className="animated-word-line animated-line-3 text-white font-extrabold">worlds</span>.
+                  <span className="relative inline-block px-1">
+                    <span className={`transition-colors duration-500 font-extrabold ${activeWordIdx === 0 ? 'text-white' : 'text-neutral-400'}`}>
+                      characters
+                    </span>
+                    {activeWordIdx === 0 && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[3.5px] rounded-full bg-gradient-to-r from-brand-accent via-rose-500 to-pink-400 shadow-[0_0_12px_#FF3366] animate-in fade-in zoom-in-95 duration-300" />
+                    )}
+                  </span>
+                  ,{' '}
+                  <span className="relative inline-block px-1">
+                    <span className={`transition-colors duration-500 font-extrabold ${activeWordIdx === 1 ? 'text-white' : 'text-neutral-400'}`}>
+                      stories
+                    </span>
+                    {activeWordIdx === 1 && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[3.5px] rounded-full bg-gradient-to-r from-brand-cyber via-cyan-400 to-teal-300 shadow-[0_0_12px_#00F0FF] animate-in fade-in zoom-in-95 duration-300" />
+                    )}
+                  </span>
+                  {' '}&{' '}
+                  <span className="relative inline-block px-1">
+                    <span className={`transition-colors duration-500 font-extrabold ${activeWordIdx === 2 ? 'text-white' : 'text-neutral-400'}`}>
+                      worlds
+                    </span>
+                    {activeWordIdx === 2 && (
+                      <span className="absolute bottom-0 left-0 right-0 h-[3.5px] rounded-full bg-gradient-to-r from-brand-amber via-yellow-400 to-amber-300 shadow-[0_0_12px_#FFB800] animate-in fade-in zoom-in-95 duration-300" />
+                    )}
+                  </span>
+                  .
                 </p>
               </div>
 
@@ -96,14 +131,14 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 Welcome to the official creative home of <strong>Unrivaled Art</strong>. Delivering iconic character designs, best-selling book covers, sequential comic pages, and 2D sakuga animations for authors, game developers, and creators worldwide.
               </p>
 
-              {/* Hero Action Buttons with Auto-Shimmer */}
+              {/* Hero Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                 <button
                   onClick={() => {
                     setActiveView('hire');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="btn-primary auto-shimmer px-8 py-4 text-sm font-bold tracking-widest flex items-center justify-center gap-2"
+                  className="btn-primary px-8 py-4 text-sm font-bold tracking-widest flex items-center justify-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>HIRE ME / COMMISSION</span>
@@ -351,7 +386,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 3. SERVICES PREVIEW & PRICING (WITH AUTO-ANIMATED CARDS & CLEAR USD PRICES) */}
+      {/* 3. SERVICES PREVIEW & PRICING */}
       <section className="bg-dark-900/90 border-y-2 border-dark-800 py-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -416,7 +451,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                         setActiveView('hire');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                       }}
-                      className="w-full btn-outline auto-shimmer text-center justify-center font-mono text-xs tracking-wider group-hover:bg-brand-accent group-hover:text-white group-hover:border-brand-accent transition-all"
+                      className="w-full btn-outline text-center justify-center font-mono text-xs tracking-wider group-hover:bg-brand-accent group-hover:text-white group-hover:border-brand-accent transition-all"
                     >
                       <span>Request This Service</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -433,7 +468,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 setActiveView('services');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="btn-secondary px-8 py-4 font-mono text-xs tracking-widest inline-flex items-center gap-2 auto-shimmer"
+              className="btn-secondary px-8 py-4 font-mono text-xs tracking-widest inline-flex items-center gap-2"
             >
               <span>VIEW FULL PRICING BREAKDOWN & COMMERCIAL TIERS</span>
               <ChevronRight className="w-4 h-4" />
@@ -443,7 +478,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 4. FOUR-STEP COMMISSION WORKFLOW (AUTO-ANIMATED & TEXT ENRICHED) */}
+      {/* 4. FOUR-STEP COMMISSION WORKFLOW */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
         <div className="mb-12 border-b-2 border-dark-800 pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
@@ -487,7 +522,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 5. CLIENT TESTIMONIALS & REVIEWS SECTION (ACCURATE DATA MAPPING) */}
+      {/* 5. CLIENT TESTIMONIALS & REVIEWS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-left mb-12 border-b-2 border-dark-800 pb-6">
           <div className="inline-flex items-center gap-1.5 text-brand-amber font-mono text-xs font-bold tracking-widest uppercase mb-1">
@@ -533,7 +568,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
         </div>
       </section>
 
-      {/* 6. COMMON QUESTIONS (FAQ ACCORDION - FULLY POPULATED & INTERACTIVE) */}
+      {/* 6. COMMON QUESTIONS (FAQ ACCORDION) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
         <div className="text-center mb-12 space-y-2">
           <div className="inline-flex items-center gap-2 text-brand-cyber font-mono text-xs font-bold tracking-widest uppercase">
@@ -589,7 +624,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
               setActiveView('contact');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="btn-outline px-6 py-3 text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:text-white inline-flex items-center gap-2 transition-colors auto-shimmer"
+            className="btn-outline px-6 py-3 text-xs font-mono font-bold tracking-wider uppercase text-brand-accent hover:text-white inline-flex items-center gap-2 transition-colors"
           >
             <span>VIEW ALL 10+ FAQ TOPICS ON CONTACT PAGE</span>
             <ArrowRight className="w-3.5 h-3.5" />
