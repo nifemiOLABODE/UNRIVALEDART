@@ -28,8 +28,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
   const battleElfArt = ARTWORKS.find(a => a.id === 'ill-battle-elf') || ARTWORKS[2];
   const animationArt = ARTWORKS.find(a => a.isVideo) || ARTWORKS[0];
   const characterDesignArt = ARTWORKS.find(a => a.category === 'character-design') || ARTWORKS[2];
-  const comicArt = ARTWORKS.find(a => a.category === 'comic-pages') || ARTWORKS[3];
-  const coverArt = ARTWORKS.find(a => a.id === 'cover-ninja') || ARTWORKS.find(a => a.category === 'cover-arts');
+  const coverArt = ARTWORKS.find(a => a.id === 'cover-2607a') || ARTWORKS.find(a => a.image?.includes('export202607181828599932'));
 
   // Dynamic ember particles for background animation (colored dots)
   const sparks = [
