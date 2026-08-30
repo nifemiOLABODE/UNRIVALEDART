@@ -213,22 +213,11 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Main Hero Card (2D Sakuga Cut - Ambient Video Showcase with 0ms Instant Poster) */}
+                {/* Main Hero Card (2D Sakuga Cut - Ambient Video Showcase) */}
                 <div 
                   className="relative group bg-dark-900 border-2 border-brand-cyber shadow-[0_10px_35px_rgba(0,240,255,0.25)] overflow-hidden pointer-events-none select-none"
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center pointer-events-none">
-                    {/* Instant 0ms Base Layer WebP Poster: Guaranteed artwork rendering even on slowest 2G/3G networks */}
-                    <img
-                      src="/opt/Illustrations/Zuko splash art.webp"
-                      alt="2D Sakuga Hero Frame"
-                      fetchPriority="high"
-                      loading="eager"
-                      decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-                    />
-
-                    {/* Smooth Fade-in Ambient Video Layer */}
                     <video
                       ref={heroVideoRef}
                       src="/Animation/New_Project_4.mp4"
@@ -239,7 +228,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                       webkit-playsinline="true"
                       x5-playsinline="true"
                       preload="auto"
-                      className={`absolute inset-0 w-full h-full object-cover z-10 pointer-events-none transition-opacity duration-500 ${heroVideoReady ? 'opacity-100' : 'opacity-0'}`}
+                      className="w-full h-full object-cover pointer-events-none"
                     />
                   </div>
                 </div>
@@ -247,7 +236,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 {/* Floating Supporting Artwork Thumbnail (Battle Elf - Pure Image Without Caption) */}
                 <div 
                   onClick={() => onSelectArtwork(battleElfArt)}
-                  className={`hidden absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-500 p-1.5 group overflow-hidden ${heroVideoReady ? 'sm:block' : ''}`}
+                  className="hidden sm:block absolute -bottom-6 -left-8 w-36 aspect-square bg-dark-900 border-2 border-dark-700 hover:border-brand-accent hover:scale-105 cursor-pointer shadow-[0_8px_25px_rgba(0,0,0,0.9)] transition-all duration-500 p-1.5 group overflow-hidden z-20"
                 >
                   <div className="w-full h-full bg-dark-950 overflow-hidden">
                     <img
