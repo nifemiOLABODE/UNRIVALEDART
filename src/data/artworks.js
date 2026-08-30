@@ -1598,15 +1598,15 @@ export const ARTWORKS = [
   },
   {
     id: 'cover-2607a',
-    title: 'Neon Odyssey — Volume 3',
+    title: 'Spider-Man',
     category: 'cover-arts',
     categoryLabel: 'Cover Arts',
     image: '/opt/Cover arts/export202607181828599932.webp',
     featured: false,
     year: '2026',
-    client: 'Web Novel Serialization',
-    description: 'Vibrant vertical cover layout optimized for digital store thumbnails, webtoon platforms, and physical print.',
-    tags: ['Digital Cover', 'Thumbnails', 'Web Novel'],
+    client: 'Comic & Cover Art',
+    description: 'Dynamic Spider-Man cover art with intense comic perspective and vivid atmospheric lighting.',
+    tags: ['Spider-Man', 'Comic Cover', 'Marvel', 'Digital Art'],
     aspect: 'tall'
   },
   {
