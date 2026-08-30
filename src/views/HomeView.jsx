@@ -29,7 +29,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
   const animationArt = ARTWORKS.find(a => a.isVideo) || ARTWORKS[0];
   const characterDesignArt = ARTWORKS.find(a => a.category === 'character-design') || ARTWORKS[2];
   const comicArt = ARTWORKS.find(a => a.category === 'comic-pages') || ARTWORKS[3];
-  const coverArt = ARTWORKS.find(a => a.category === 'cover-arts') || ARTWORKS[4];
+  const coverArt = ARTWORKS.find(a => a.id === 'cover-ninja') || ARTWORKS.find(a => a.category === 'cover-arts');
 
   // Dynamic ember particles for background animation (colored dots)
   const sparks = [
@@ -179,21 +179,21 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Main Hero Card (2D Sakuga Cut - Pure video without any text caption) */}
+                {/* Main Hero Card (2D Sakuga Cut - Ambient Video Showcase) */}
                 <div 
-                  onClick={() => onSelectArtwork(animationArt)}
-                  className="relative group cursor-pointer bg-dark-900 border-2 border-brand-cyber hover:border-cyan-400 transition-all duration-300 shadow-[0_10px_35px_rgba(0,240,255,0.25)] hover:shadow-[0_15px_45px_rgba(0,240,255,0.5)] overflow-hidden"
+                  className="relative group bg-dark-900 border-2 border-brand-cyber shadow-[0_10px_35px_rgba(0,240,255,0.25)] overflow-hidden pointer-events-none select-none"
                 >
-                  <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center">
+                  <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center pointer-events-none">
                     <video
                       src="/Animation/New_Project_4.mp4"
                       autoPlay
                       loop
                       muted
                       playsInline
+                      webkit-playsinline="true"
                       preload="auto"
                       onCanPlay={() => setHeroVideoReady(true)}
-                      className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 pointer-events-none ${heroVideoReady ? 'opacity-100' : 'opacity-0'}`}
+                      className={`w-full h-full object-cover pointer-events-none ${heroVideoReady ? 'opacity-100' : 'opacity-0'}`}
                     />
                   </div>
                 </div>
