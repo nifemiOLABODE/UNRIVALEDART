@@ -8,8 +8,6 @@ import { FAQS } from '../data/faqs';
 export default function HomeView({ setActiveView, onSelectArtwork, onSelectService }) {
   const [openFaq, setOpenFaq] = useState(null);
   const [activeWordIdx, setActiveWordIdx] = useState(0);
-  const [heroVideoReady, setHeroVideoReady] = useState(false);
-  const heroVideoRef = useRef(null);
 
   // Single colorful animated underline that switches between words repeatedly
   useEffect(() => {
@@ -17,39 +15,6 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
       setActiveWordIdx((prev) => (prev + 1) % 3);
     }, 2200);
     return () => clearInterval(interval);
-  }, []);
-
-  // Aggressive multi-event video readiness & autoplay handler for mobile/low-end devices
-  useEffect(() => {
-    const video = heroVideoRef.current;
-    if (!video) return;
-
-    const markReady = () => setHeroVideoReady(true);
-
-    video.addEventListener('playing', markReady);
-    video.addEventListener('timeupdate', markReady);
-    video.addEventListener('loadeddata', markReady);
-    video.addEventListener('canplay', markReady);
-
-    // If video has already started or buffered
-    if (video.readyState >= 2 || video.currentTime > 0) {
-      setHeroVideoReady(true);
-    }
-
-    // Force play in case mobile browser suspended autoplay
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => markReady()).catch(() => {
-        // Handled gracefully: poster remains crisp and visible
-      });
-    }
-
-    return () => {
-      video.removeEventListener('playing', markReady);
-      video.removeEventListener('timeupdate', markReady);
-      video.removeEventListener('loadeddata', markReady);
-      video.removeEventListener('canplay', markReady);
-    };
   }, []);
 
   const toggleFaq = (idx) => {
@@ -219,7 +184,6 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 >
                   <div className="relative aspect-[4/5] bg-dark-950 overflow-hidden flex items-center justify-center pointer-events-none">
                     <video
-                      ref={heroVideoRef}
                       src="/Animation/New_Project_4.mp4"
                       autoPlay
                       loop
@@ -250,7 +214,7 @@ export default function HomeView({ setActiveView, onSelectArtwork, onSelectServi
                 </div>
 
                 {/* Floating Clean Badge */}
-                <div className="absolute -top-3 -right-3 bg-brand-cyber text-dark-950 px-3 py-1 font-mono text-xs font-bold tracking-widest uppercase shadow-solid-sm">
+                <div className="absolute -top-3 -right-3 bg-brand-cyber text-dark-950 px-3 py-1 font-mono text-xs font-bold tracking-widest uppercase shadow-solid-sm z-20">
                   ⚡ 2D SAKUGA
                 </div>
 
