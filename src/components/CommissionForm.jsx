@@ -16,7 +16,7 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
     intendedUse: 'Personal Use',
     backgroundDetail: 'Simple / Graphic Lighting',
     deadline: 'Standard (2–3 Weeks)',
-    budgetRange: '$150 – $300',
+    budgetRange: '$50 – $150',
     referenceLinks: '',
     extraNotes: '',
     antiSpam: ''
@@ -47,42 +47,44 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
   }, [preselectedArtwork]);
 
   // Live estimated calculation
+  // Live estimated calculation
   const calculateEstimate = () => {
-    let base = 120;
-    if (formData.service === 'chibi-emotes') base = 60;
-    else if (formData.service === 'character-illustration') {
-      if (formData.scopeTier === 'bust') base = 120;
-      else if (formData.scopeTier === 'half-body') base = 180;
-      else if (formData.scopeTier === 'full-body') base = 260;
-    } else if (formData.service === 'music-covers' || formData.service === 'character-design') {
-      if (formData.scopeTier === 'single' || formData.scopeTier === 'concept') base = 200;
-      else if (formData.scopeTier === 'album' || formData.scopeTier === 'turnaround') base = 350;
-      else base = 450;
+    let base = 50;
+    if (formData.service === 'character-illustration') {
+      if (formData.scopeTier === 'turnaround') base = 100;
+      else base = 50;
+    } else if (formData.service === 'music-covers') {
+      if (formData.scopeTier === 'album') base = 350;
+      else if (formData.scopeTier === 'motion') base = 500;
+      else base = 100;
     } else if (formData.service === 'book-covers') {
-      if (formData.scopeTier === 'ebook') base = 300;
-      else if (formData.scopeTier === 'wrap') base = 450;
-      else base = 600;
-    } else if (formData.service === 'comic-art') {
       base = 150;
+    } else if (formData.service === 'comic-art') {
+      if (formData.scopeTier === 'colored' || formData.scopeTier === 'colored-comic') base = 100;
+      else base = 70;
     } else if (formData.service === '2d-animation') {
-      base = 280;
+      if (formData.scopeTier === 'hourly' || formData.scopeTier === 'hourly-anim') base = 10;
+      else base = 250;
+    } else if (formData.service === 'chibi-emotes') {
+      if (formData.scopeTier === 'emote-pack') base = 80;
+      else base = 50;
     }
 
     const chars = parseInt(formData.characterCount) || 1;
     if (chars > 1) {
-      base += (chars - 1) * (base * 0.65);
+      base += (chars - 1) * (base * 0.8);
     }
 
     if (formData.backgroundDetail === 'Full Detailed Scene') {
-      base += 90;
+      base += 40;
     } else if (formData.backgroundDetail === 'Complex Cityscape / Fantasy Architecture') {
-      base += 150;
+      base += 80;
     }
 
     if (formData.intendedUse === 'Commercial / Indie Game / Publishing') {
-      base *= 1.4;
+      base *= 1.3;
     } else if (formData.intendedUse === 'Merchandise / Franchise IP') {
-      base *= 1.7;
+      base *= 1.5;
     }
 
     if (formData.deadline === 'Rush Delivery (3–5 Days)') {
@@ -331,12 +333,12 @@ Project Details: ${submittedData.description}
                   onChange={handleChange}
                   className="w-full bg-dark-950 border-2 border-dark-700 focus:border-brand-accent p-3.5 text-white text-sm focus:outline-none transition-colors font-mono"
                 >
-                  <option value="character-illustration">Character Illustration ($120+)</option>
-                  <option value="music-covers">Music & Album Cover ($200+)</option>
-                  <option value="book-covers">Book & Novel Cover ($300+)</option>
-                  <option value="comic-art">Comic & Manga Sequential Art ($150+/pg)</option>
-                  <option value="2d-animation">2D Sakuga Animation ($280+)</option>
-                  <option value="chibi-emotes">Chibi & Stream Emote Pack ($60+)</option>
+                  <option value="character-illustration">Character Illustration ($50+)</option>
+                  <option value="music-covers">Music Cover ($100+)</option>
+                  <option value="book-covers">Novel Cover ($150 digital only)</option>
+                  <option value="comic-art">Comic & Sequential Pages ($70–$100/pg)</option>
+                  <option value="2d-animation">2D Animation ($250 / $10/hr)</option>
+                  <option value="chibi-emotes">Chibi Art ($50–$80)</option>
                   <option value="custom-project">Custom / Long-Term IP Project</option>
                 </select>
               </div>
@@ -351,12 +353,15 @@ Project Details: ${submittedData.description}
                   onChange={handleChange}
                   className="w-full bg-dark-950 border-2 border-dark-700 focus:border-brand-accent p-3.5 text-white text-sm focus:outline-none transition-colors font-mono"
                 >
-                  <option value="bust">Bust / Headshot (Standard)</option>
-                  <option value="half-body">Half-Body (Waist-Up)</option>
-                  <option value="full-body">Full-Body (Head-to-Toe Splash Art)</option>
-                  <option value="concept">Turnaround Sheet / 3-Views</option>
-                  <option value="wrap">Full Wrap Book Cover (Front + Spine + Back)</option>
-                  <option value="animation-loop">Looping Stream Animation</option>
+                  <option value="single">Single Character / Standard Cover ($50–$100)</option>
+                  <option value="turnaround">Turnaround Sheet / Loop (+$50 / $250)</option>
+                  <option value="album">Full Album Package ($350)</option>
+                  <option value="motion">Cover With Motion Animation ($500)</option>
+                  <option value="novel-digital">Novel Cover (Digital Copy Only - $150)</option>
+                  <option value="bw-comic">Black & White Comic Page ($70/page)</option>
+                  <option value="colored-comic">Fully Colored Comic Page ($100/page)</option>
+                  <option value="emote-pack">Emote Pack ($80)</option>
+                  <option value="hourly-anim">Custom Animation ($10 per hour)</option>
                 </select>
               </div>
 
@@ -371,7 +376,7 @@ Project Details: ${submittedData.description}
                   className="w-full bg-dark-950 border-2 border-dark-700 focus:border-brand-accent p-3.5 text-white text-sm focus:outline-none transition-colors font-mono"
                 >
                   <option value="1">1 Character</option>
-                  <option value="2">2 Characters (+65%)</option>
+                  <option value="2">2 Characters (+80% extras)</option>
                   <option value="3">3 Characters</option>
                   <option value="4">4+ Characters / Ensemble</option>
                 </select>

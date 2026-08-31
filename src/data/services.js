@@ -4,13 +4,12 @@ export const SERVICES = [
     title: 'Character Illustration',
     tagline: 'Custom character artwork with vibrant lighting, detailed textures, and expressive styling.',
     badge: 'Most Popular',
-    startingPrice: 120,
+    startingPrice: 50,
     turnaround: '5–10 Business Days',
     idealFor: 'Authors, VTubers, Gamers, OC Creators, Personal Gifts',
     tiers: [
-      { name: 'Bust / Portrait', price: '$120+', description: 'Head to shoulders, clean lighting, simple or transparent background.' },
-      { name: 'Half-Body', price: '$180+', description: 'Waist-up with detailed costume rendering, hands, dynamic pose.' },
-      { name: 'Full-Body Splash Art', price: '$260+', description: 'Head-to-toe full character render with detailed FX & perspective.' }
+      { name: 'Single Character', price: '$50', description: 'Single character custom illustration with vibrant lighting and expressive pose.' },
+      { name: 'Character Turnaround Sheet', price: '$100', description: 'Full character turnaround model sheet with front, back, and side reference views (+$50).' }
     ],
     includes: [
       'High-resolution PNG / JPEG (300+ DPI)',
@@ -19,10 +18,10 @@ export const SERVICES = [
       'Commercial usage available upon request'
     ],
     addons: [
-      { name: 'Additional Character', price: '+$80–$150 per character' },
-      { name: 'Complex / Detailed Environment', price: '+$60–$140' },
-      { name: 'Weapons / Mechanical Props', price: '+$35–$70' },
-      { name: 'Rush Delivery (3-day turnaround)', price: '+40% of total' }
+      { name: 'Turnarounds', price: '+$50' },
+      { name: 'Extra Character', price: '+80% (+$40)' },
+      { name: 'Complex / Detailed Environment', price: '+$40–$80' },
+      { name: 'Rush Delivery (3-day turnaround)', price: '+40%' }
     ]
   },
   {
@@ -30,13 +29,13 @@ export const SERVICES = [
     title: 'Music Cover',
     tagline: 'High-impact illustrated single and album covers crafted for Spotify, Apple Music, vinyl, and streaming platforms.',
     badge: 'Single & Album Ready',
-    startingPrice: 200,
+    startingPrice: 100,
     turnaround: '5–10 Business Days',
     idealFor: 'Musicians, Producers, Bands, Record Labels, DJs',
     tiers: [
-      { name: 'Single Front Cover', price: '$200+', description: 'Square 3000x3000px high-res cover art optimized for all major DSPs.' },
-      { name: 'Full Album & Vinyl Package', price: '$350+', description: 'Front, back tracklist layout, spine, and inner sleeve printable files.' },
-      { name: 'Motion Cover / Spotify Canvas Package', price: '$450+', description: 'Full album cover art + seamless 8-second animated Spotify Canvas loop.' }
+      { name: 'Single Front Cover', price: '$100', description: 'Square 3000x3000px high-res single front cover art optimized for all major DSPs.' },
+      { name: 'Full Album Package', price: '$350', description: 'Complete album packaging: front, back tracklist layout, spine, and inner sleeve printable files.' },
+      { name: 'Cover With Motion Animation', price: '$500', description: 'Full album cover art + seamless animated motion loop for Spotify Canvas & promotional teasers.' }
     ],
     includes: [
       '3000x3000px 300+ DPI master files (RGB + CMYK print specs)',
@@ -45,48 +44,43 @@ export const SERVICES = [
       '3 Dedicated revision checkpoints'
     ],
     addons: [
-      { name: 'Animated Spotify Canvas Loop', price: '+$90' },
-      { name: 'Social Media Promo Banner Kit', price: '+$50' },
-      { name: 'Vinyl Gatefold Layout', price: '+$100' }
+      { name: 'Motion Animation', price: '+$150' },
+      { name: 'Social Media Promo Banner Kit', price: '+$40' }
     ]
   },
   {
     id: 'book-covers',
-    title: 'Book & Novel Covers',
-    tagline: 'Cinematic, hook-driven illustrated book covers that demand clicks on digital stores and bookshelves.',
+    title: 'Novel Cover',
+    tagline: 'Cinematic, hook-driven illustrated novel covers that demand clicks on digital stores and webtoon platforms.',
     badge: 'Bestseller Grade',
-    startingPrice: 300,
-    turnaround: '10–18 Business Days',
+    startingPrice: 150,
+    turnaround: '7–14 Business Days',
     idealFor: 'Fantasy & Sci-Fi Authors, Web Novelists, Graphic Novel Publishers',
     tiers: [
-      { name: 'E-Book Front Cover', price: '$300+', description: 'Optimized high-impact digital cover with custom typography placement.' },
-      { name: 'Full Wrap Paperback & Hardcover', price: '$450+', description: 'Front, Spine, and Back cover formatted to printer CMYK specs with bleed.' },
-      { name: 'Cover + Promo Art Package', price: '$600+', description: 'Full wrap cover + 2 social media character banners + 3D mockup renders.' }
+      { name: 'Novel Cover (Digital Copy Only)', price: '$150', description: 'Optimized high-impact digital novel/e-book cover with custom title styling (digital copy only).' }
     ],
     includes: [
-      'CMYK Print-ready PDF + RGB Web PNGs',
+      'High-resolution RGB Web PNGs & master files',
       'Custom typography integration & title styling',
-      'Full commercial publishing rights',
-      'Free 3D book mockup for pre-orders and promotional campaigns'
+      'Digital publishing commercial rights',
+      '3D digital book mockup for promotions'
     ],
     addons: [
-      { name: 'Dust Jacket Flaps', price: '+$50' },
-      { name: 'Audiobook Square Crop', price: '+$40' },
-      { name: 'Animated Cover / Motion Teaser', price: '+$160' }
+      { name: 'Social Media Banner', price: '+$40' },
+      { name: 'Audiobook Square Crop', price: '+$30' }
     ]
   },
   {
     id: 'comic-art',
-    title: 'Comic Art & Sequential Pages',
-    tagline: 'Visually gripping panel storytelling, explosive action layouts, and master-level inking & screentoning.',
+    title: 'Comic & Sequential Pages',
+    tagline: 'Visually gripping panel storytelling, explosive action layouts, and master-level inking & coloring.',
     badge: 'Storyteller',
-    startingPrice: 150,
-    turnaround: '5–10 Days per Page',
+    startingPrice: 70,
+    turnaround: '3–7 Days per Page',
     idealFor: 'Webtoon Creators, Independent Comic Publishers, Manga Authors',
     tiers: [
-      { name: 'Inks & Screentones (B&W)', price: '$150 / page', description: 'Traditional manga/comic style inking with screentones & speedlines.' },
-      { name: 'Full Color Illustrated Page', price: '$240 / page', description: 'Complete storyboard, lineart, color rendering, and dramatic lighting passes.' },
-      { name: 'Webtoon Vertical Episode (25 panels)', price: '$650 / episode', description: 'Continuous vertical scroll format formatted for Webtoon / Tapas.' }
+      { name: 'Black and White Page', price: '$70 / page', description: 'Traditional manga/comic style inking with screentones, speedlines, and dynamic paneling.' },
+      { name: 'Fully Colored Page', price: '$100 / page', description: 'Complete storyboard, lineart, full color rendering, and dramatic lighting passes.' }
     ],
     includes: [
       'High-resolution multi-layer print files (600 DPI for B&W / 300 DPI Color)',
@@ -95,22 +89,21 @@ export const SERVICES = [
       'Rough thumbnail storyboard approval stage before inking'
     ],
     addons: [
-      { name: 'Custom Lettering & Typesetting', price: '+$25 / page' },
-      { name: 'Variant Incentive Cover', price: '+$200' }
+      { name: 'Custom Lettering & Typesetting', price: '+$20 / page' },
+      { name: 'Variant Incentive Cover', price: '+$150' }
     ]
   },
   {
     id: '2d-animation',
-    title: '2D Animation & Motion Design',
-    tagline: 'Hand-drawn sakuga action cuts, character idle loops, stream alerts, and dynamic cinematic trailers.',
+    title: '2D Animation',
+    tagline: 'Hand-drawn sakuga action cuts, character turnaround loops, and dynamic motion animation.',
     badge: 'Dynamic Motion',
-    startingPrice: 280,
+    startingPrice: 250,
     turnaround: '10–20 Business Days',
     idealFor: 'Streamers, YouTubers, Music Artists, Game Trailers, Animated Intros',
     tiers: [
-      { name: 'Animated Loop (VTuber / Stream)', price: '$280+', description: '5–10s seamless looping character animation with glowing FX.' },
-      { name: 'Short Sakuga Cut (1–3s action)', price: '$400+', description: 'Frame-by-frame sakuga keyframes, smears, and explosive impact frames.' },
-      { name: 'Music Video / Trailer Cut (10–30s)', price: '$850+', description: 'Multi-scene animated sequence with camera movements and composite FX.' }
+      { name: 'Character Turnaround Loop (Single Character)', price: '$250', description: 'Seamless looping 2D animated character turnaround cut.' },
+      { name: 'Custom Animation (Hourly)', price: '$10 / hour', description: 'Dynamic sakuga cuts, action motion, scene sequences, and stream alerts billed at $10/hour.' }
     ],
     includes: [
       'Delivered in 4K MP4, WebM (with alpha transparency), and animated GIF',
@@ -118,22 +111,21 @@ export const SERVICES = [
       'Storyboard and rough animation line test previews'
     ],
     addons: [
-      { name: 'Extended Duration (per second)', price: '+$75/sec' },
-      { name: 'Live2D Rigging Prep', price: '+$180' }
+      { name: 'Additional Animation Hours', price: '+$10/hour' },
+      { name: 'Live2D Rigging Prep', price: '+$150' }
     ]
   },
   {
     id: 'chibi-emotes',
-    title: 'Chibi Art & Stream Badges',
+    title: 'Chibi Art',
     tagline: 'Cute, expressive, stylized chibi character illustrations and custom emote packs with big personality.',
     badge: 'Chibi & Stream',
-    startingPrice: 60,
+    startingPrice: 50,
     turnaround: '3–5 Business Days',
     idealFor: 'Twitch Affiliates, Discord Communities, Merch Stickers, VTubers',
     tiers: [
-      { name: 'Single Chibi Character', price: '$60+', description: 'Full body cute stylized character with bold outlines & clean shading.' },
-      { name: 'Emote Pack (3 Emotes)', price: '$90+', description: 'Expressive Twitch/Discord sized emotes (112px, 56px, 28px).' },
-      { name: 'Ultimate Streamer Bundle', price: '$180+', description: '6 Custom emotes + 1 Full Chibi avatar + 3 Sub Badges.' }
+      { name: 'Single Cute Chibi Character', price: '$50', description: 'Full body cute stylized character with bold outlines & clean shading.' },
+      { name: 'Emote Pack', price: '$80', description: 'Expressive Twitch/Discord sized emotes (112px, 56px, 28px).' }
     ],
     includes: [
       'Pre-sized files ready for Discord, Twitch, and YouTube',
@@ -141,7 +133,8 @@ export const SERVICES = [
       'Fast turnaround time'
     ],
     addons: [
-      { name: 'Animated Emote (GIF format)', price: '+$35 each' }
+      { name: 'Additional Emote', price: '+$25 each' },
+      { name: 'Animated Emote (GIF format)', price: '+$30 each' }
     ]
   }
 ];

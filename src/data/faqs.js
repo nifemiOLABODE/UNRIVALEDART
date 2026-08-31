@@ -5,7 +5,7 @@ export const FAQS = [
   },
   {
     question: 'How much does a commission cost?',
-    answer: 'Prices start at $60 for Chibis, $120 for Character Illustrations, $150/page for Comics, $220 for Character Turnaround Sheets, $300 for Book Covers, and $280 for 2D Animation. Final pricing depends on detail complexity, number of characters, background requirements, deadlines, and usage rights.'
+    answer: 'Prices start at $50 for Character Illustrations & Chibis, $70/page for B&W Comics, $100/page for Color Comics, $100 for Music Covers, $150 for Novel Covers (digital copy only), and $250 for 2D Animation Loops ($10/hr for custom animation). Final pricing depends on scope, additional characters (+80%), and project complexity.'
   },
   {
     question: 'How long do commissions take to complete?',
