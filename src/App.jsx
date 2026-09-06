@@ -12,7 +12,6 @@ import AboutView from './views/AboutView';
 import HireView from './views/HireView';
 import ContactView from './views/ContactView';
 import PrivacyView from './views/PrivacyView';
-import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 
 export default function App() {
   const [activeView, setActiveView] = useState('home');
@@ -164,9 +163,6 @@ export default function App() {
         setActiveView={setActiveView} 
         onOpenShop={() => setIsShopModalOpen(true)} 
       />
-
-      {/* Floating Studio Logo WhatsApp Button */}
-      <FloatingWhatsAppButton />
 
       {/* Lightbox Modal */}
       <ArtworkModal

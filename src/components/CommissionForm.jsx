@@ -109,9 +109,7 @@ export default function CommissionForm({ preselectedService, preselectedArtwork 
     }
     setIsSubmitting(true);
 
-    const briefText = `
-=== UNRIVALED ART COMMISSION BRIEF ===
-Client Name: ${formData.name}
+    const briefText = `Client Name: ${formData.name}
 Client Email: ${formData.email}
 Social Handle: ${formData.socialHandle || 'None'}
 Service: ${formData.service}
@@ -121,15 +119,14 @@ Style: ${formData.stylePreference}
 Usage: ${formData.intendedUse}
 Background: ${formData.backgroundDetail}
 Deadline: ${formData.deadline}
-Estimated Range: ~$${currentEstimate} USD
+Estimated Range: $${currentEstimate} USD
 References: ${formData.referenceLinks || 'None provided'}
 
 Project Vision & Details:
-${formData.description}
-======================================`;
+${formData.description}`;
 
     const payload = {
-      _subject: `🎨 Commission Request: ${formData.service} from ${formData.name}`,
+      _subject: `Commission Request: ${formData.service} - ${formData.name}`,
       name: formData.name,
       email: formData.email,
       _replyto: formData.email,

@@ -16,11 +16,12 @@ export default function ContactView({ setActiveView }) {
     setIsSubmitting(true);
 
     const payload = {
-      _subject: `General Inquiry: ${formData.subject || 'New Contact Message'} from ${formData.name}`,
-      senderName: formData.name,
-      senderEmail: formData.email,
-      inquirySubject: formData.subject,
-      inquiryMessage: formData.message
+      _subject: formData.subject ? `Inquiry: ${formData.subject.trim()} - ${formData.name}` : `New Inquiry from ${formData.name}`,
+      name: formData.name,
+      email: formData.email,
+      _replyto: formData.email,
+      subject: formData.subject || 'General Inquiry',
+      message: formData.message
     };
 
     try {
